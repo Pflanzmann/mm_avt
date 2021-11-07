@@ -1,10 +1,10 @@
 
 //import './App.css';
-import Ui from './Ui';
+import Videoplayer from './Videoplayer';
 
 function App() {
   return (
-   Ui()
+  Videoplayer()
   );
 }
 
