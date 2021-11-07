@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FilterImage from './FilterImage';
+import { useDrop } from 'react-dnd';
+import "../style/DragDrop.css";
 
 //list of filterImage-Objects to map through and display later
 //since each element needs same logik and hooks to be draggabel
@@ -20,18 +22,47 @@ const FilterImageList = [
     },
 ]
 
-function DragDrop(props) {
+function DragDrop() {
+
+    //list of FilterImages that are dropped in dropArea
+    const [dropArea, setDropArea] = useState([]);
+
+    //[if FilterImage is over dropArea, reference to dropArea]
+    const [{ isOver }, drop] = useDrop(() => ({
+        accept: "image",
+        drop: (item) => addFilterToDropArea(item.id),
+        collect: (monitor) => ({
+            isOver: monitor.isOver(),
+        }),
+    }));
+
+    const addFilterToDropArea = (id) => {
+        const currentFilterImageList = FilterImageList.filter((filterImage) => id === filterImage.id);
+        setDropArea((dropArea) => [...dropArea, currentFilterImageList[0]]);
+
+        //replace FilterImage
+        //setDropArea([currentFilterImageList[0]]);
+    };
+
     return (
         <>
             <div className="Filters">
                 {FilterImageList.map((filterImage) => {
-                    return(
-                    <FilterImage url={filterImage.url} id={filterImage.id} />
-                   )
-                    })
+                    return (
+                        <FilterImage url={filterImage.url} id={filterImage.id} />
+                    )
+                })
                 }
             </div>
-            <div className="DropArea"></div>
+            <div
+                className="DropArea" ref={drop}>
+                {dropArea.map((filterImage) => {
+                    return (
+                        <FilterImage url={filterImage.url} id={filterImage.id} />
+                    )
+                })}
+
+            </div>
         </>
     );
 }
