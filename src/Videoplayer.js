@@ -95,5 +95,5 @@ var frames = {
 };
 
 function onUpdateFrames(frames) {
-  //TODO: deal with frames
+  console.log(frames)
 }
