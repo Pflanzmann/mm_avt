@@ -9,7 +9,13 @@ import Timeline from "./timeline/Timeline.js"
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <Timeline/>
+
+      <div className="App">
+        <Videoplayer />
+        <DragDrop />
+        {/* <Timeline /> */}
+      </div>
+
     </DndProvider>
   );
 }

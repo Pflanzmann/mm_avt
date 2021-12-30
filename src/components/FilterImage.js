@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDrag } from "react-dnd";
+import "../style/DragDrop.css";
 
 //implement all the logic needed to make Images draggable
 function FilterImage({ id, url }) {
@@ -21,8 +22,6 @@ function FilterImage({ id, url }) {
     return <img
         ref={drag}
         src={url}
-        width="150px"
-        height="250px"
         style={{ border: isDragging ? "10px solid pink" : "0px" }} />;
 }
 

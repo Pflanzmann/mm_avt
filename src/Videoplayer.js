@@ -18,7 +18,7 @@ export default () => {
   } = useVideoPlayer(videoElement);
 
   return (
-    <div className="container">
+    <div className="video-container">
       <div className="videoWrapper">
         <video
           src={video}
@@ -53,7 +53,10 @@ export default () => {
             )}
           </button>
         </div>
+       
       </div>
     </div>
   )
 };
+
+
