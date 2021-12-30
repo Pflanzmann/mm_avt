@@ -1,7 +1,8 @@
+/*
 body {
-    background: #eeeeee;  /*background of page */ 
-    
+    background: #eeeeee;  
   }
+  */
   
   .video-container {
     display: inline-block;
@@ -11,16 +12,14 @@ body {
     height: 80vh;
   }
   
-  h1 {
-    color: white;
-  }
+ 
   
   video {
     width: 100%;
     position: relative;
     bottom: 10px;
     padding: 14px;
-    margin-top: 40px;
+    margin-top: 10px;
     width: 100%;
     max-width: 750px;
   }

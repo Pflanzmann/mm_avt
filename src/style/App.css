@@ -39,5 +39,36 @@
 
 .App{
  
-  background-image: linear-gradient(to bottom right, red, yellow);
+  
 }
+
+body{
+  background-image: linear-gradient( rgba(4, 58, 59, 0.438), rgb(20, 201, 192));
+}
+
+h1{
+  font-size: 50px;
+  color: rgb(224, 19, 190);
+  text-align: center;
+  font-style: normal;
+  /* text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color:rgba(4, 58, 59, 0.438);   */
+}
+
+.footer{
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+  color: rgb(102, 12, 87);
+}
+
+.footer-matrikel{
+  font-size: 12px;
+  margin-top: -20px;
+}
+
+

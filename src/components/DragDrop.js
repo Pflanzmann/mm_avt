@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FilterImage from './FilterImage';
 import { useDrop } from 'react-dnd';
 import "../style/DragDrop.css";
+
 import Timeline from "timeline-editor-react";
 
 //list of filterImage-Objects to map through and display later
@@ -11,7 +12,7 @@ import Timeline from "timeline-editor-react";
 const FilterImageList = [
     {
         id: 1,  //to identify each draggable Filter/image
-        url: "https://upload.wikimedia.org/wikipedia/commons/2/28/Sillitoe-black-white.gif",
+        url: "http://drive.google.com/uc?export=view&id=1ha3vxlvLagCtuglChNmSgoKaOHgtd1lO",
     },
     {
         id: 2,  //to identify each draggable Filter/image
@@ -49,15 +50,7 @@ function DragDrop() {
         <>
 
             <div >
-                <div
-                    className="drop-area" ref={drop}>
-                    {dropArea.map((filterImage) => {
-                        // return (
-                        //     <FilterImage url={filterImage.url} id={filterImage.id} />
-                        // )
-                        console.log(filterImage.id)
-                    })}
-                </div>
+               
                 <div className="filter-images">
                     {FilterImageList.map((filterImage) => {
                         return (
@@ -65,6 +58,17 @@ function DragDrop() {
                         )
                     })
                     }
+                </div>
+
+                <div
+                    className="drop-area" ref={drop}>
+                        <p>Droparea</p>
+                    {dropArea.map((filterImage) => {
+                        // return (
+                        //     <FilterImage url={filterImage.url} id={filterImage.id} />
+                        // )
+                        console.log(filterImage.id)
+                    })}
                 </div>
 
                 {/* <Timeline layers={layers} frames={frames} onUpdateFrames={onUpdateFrames} /> */}
