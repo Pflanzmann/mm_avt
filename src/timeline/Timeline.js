@@ -33,39 +33,58 @@ export default () => {
         <div className="timeline" id="timeline" ref={drop}
             onMouseUp={() => {
                 setDraggingState({
+                    resizing: false,
+                    draggingFilterBarIndex: -1,
+                    draggingFilterIndex: -1,
+                })
+            }}
+            onMouseLeave={() => {
+                setDraggingState({
+                    resizing: false,
                     draggingFilterBarIndex: -1,
                     draggingFilterIndex: -1,
                 })
             }}
             onMouseMove={(e) => {
-                if (filterState.draggingFilterIndex != -1) {
-                    var bounds = document.getElementById("timeline").getBoundingClientRect();
-                    var moveMouseX = e.clientX - bounds.left;
-                    
-                    var filterBoxGrab = moveMouseX;
-
-                    setFilterBoxPosition(filterBoxGrab)
+                if (draggingState.draggingFilterIndex === -1) {
+                    return;
                 }
+
+                var bounds = document.getElementById("filterBar").getBoundingClientRect();
+                var moveMouseX = e.clientX - bounds.left;
+
+                var filterBoxGrab = moveMouseX;
+
+                setFilterBoxPosition(filterBoxGrab)
             }}
         >
             {
                 filterState.filterBars.map((filterBar, barIndex) => (
-                    <div className="filterBar">
-                        {
-                            filterBar.filters.map((filter, filterIndex) => (
-                                <div className="filterBox" style={{
-                                    width: filter.duration * 5 + 'px',
-                                    marginLeft: filter.startTime,
-                                }}
-                                    onMouseDown={() => {
-                                        setDraggingState({
-                                            draggingFilterBarIndex: barIndex,
-                                            draggingFilterIndex: filterIndex,
-                                        })
+                    <div className="filterLine">
+                        <div className="filterTitleBox">
+                            {filterBar.filterId}
+                        </div>
+                        <div className="filterBar" id="filterBar">
+                            {
+                                filterBar.filters.map((filter, filterIndex) => (
+                                    <div className="filterBox" style={{
+                                        width: filter.duration + 'px',
+                                        marginLeft: filter.startTime,
                                     }}
-                                >
-                                </div>
-                            ))}
+                                        onMouseDown={(e) => {
+                                            var bounds = e.target.getBoundingClientRect();
+                                            var moveMouseX = e.clientX;
+
+                                            setDraggingState({
+                                                resizing: Math.abs(bounds.right - moveMouseX) < 10,
+                                                draggingFilterBarIndex: barIndex,
+                                                draggingFilterIndex: filterIndex,
+                                            })
+                                        }}
+                                    >
+                                    </div>
+                                ))}
+                        </div>
                     </div>
                 ))
             }

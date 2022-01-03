@@ -9,7 +9,7 @@ const useTimeline = () => {
                     {
                         filterId: 0,
                         startTime: 0,
-                        duration: 10,
+                        duration: 50,
                     }
                 ]
             },
@@ -19,12 +19,12 @@ const useTimeline = () => {
                     {
                         filterId: 1,
                         startTime: 10,
-                        duration: 20,
+                        duration: 40,
                     },
                     {
                         filterId: 1,
                         startTime: 150,
-                        duration: 70,
+                        duration: 200,
                     }
                 ]
             },
@@ -32,6 +32,7 @@ const useTimeline = () => {
     });
 
     const [draggingState, setDraggingState] = useState({
+        resizing: false,
         draggingFilterBarIndex: -1,
         draggingFilterIndex: -1,
     })
@@ -40,21 +41,29 @@ const useTimeline = () => {
         if (draggingState.draggingFilterBarIndex == -1 && draggingState.draggingFilterIndex == -1)
             return;
 
-        if (filterState.filterBars[draggingState.draggingFilterBarIndex].filters
-        [draggingState.draggingFilterBarIndex] == undefined)
+
+            console.log("isResizing: " + draggingState.resizing)
+        if (draggingState.resizing) {
+            console.log("isResizing")
+            filterState.filterBars[draggingState.draggingFilterBarIndex].filters
+            [draggingState.draggingFilterIndex].duration = Math.abs(position - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
+            [draggingState.draggingFilterIndex].startTime)
+
+            updateFilterBars();
             return;
+        }
+
+        var newPosition = Math.min(
+            position - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
+            [draggingState.draggingFilterIndex].duration / 2,
+            (document.getElementById("timeline").getBoundingClientRect().right - document.getElementById("filterBar").getBoundingClientRect().left - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
+            [draggingState.draggingFilterIndex].duration)
+        );
+
+        newPosition = Math.max(0, newPosition);
 
         filterState.filterBars[draggingState.draggingFilterBarIndex].filters
-        [draggingState.draggingFilterIndex].startTime = position;
-
-        console.log("min position: " + Math.min(
-            position,
-            (document.getElementById("timeline").getBoundingClientRect().right - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
-            [draggingState.draggingFilterIndex].duration)
-        ))
-
-        console.log("update position of filter: " + position)
-
+        [draggingState.draggingFilterIndex].startTime = newPosition;
 
         updateFilterBars();
     };
@@ -86,7 +95,7 @@ const useTimeline = () => {
                     }
                 ]
             })
-            
+
         setFilterBoxPosition(-1)
     }
 

@@ -1,25 +1,41 @@
 .timeline {
     position: relative;
+    margin-left: 310px;
     width: 100%;
-    height: 100%;
+    max-width: 750px;
+    border: 5px;
+    border-style: double; 
+    border-color: darkmagenta;
+
+    background-color: rgba(226, 183, 42, 0.623);
+    box-shadow: 0 8px 32px 0 rgba(85, 68, 14, 0.37);}
+.filterLine {
+    display: flex;
+}
+
+.filterTitleBox {
+    display: flex;
+    border: 1px solid black;
 }
 
 .filterBar {
-    border: 1px solid black;
+    display: flex;
+    border: 1px solid red;
     table-layout: fixed;
     position: relative;
     height: 20px;
+    width: 100%;
 }
 
 .filterBox {
+    border-radius: 8px !important;
+
     position: absolute;
-    cursor: move;
     display: inline-flex;
     
     background-color: green;
    
-    height: 20px;
+    height: 90%;
 
     border: 1px solid ;
-    resize: horizontal;
 }
