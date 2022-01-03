@@ -49,7 +49,8 @@ body{
 
   grid-template-areas: "header header"
                         "filterImages videoPlayer"
-                        "something timeline"
+                        "something1 something2"
+                        "something3 timeline"
                         "footer footer";
   
 }
@@ -85,7 +86,7 @@ header{
 }
 
 .gif1{
-  grid-area: something;
+  grid-area: something1;
   justify-content: center;
   align-items: center;
   height: 100%;

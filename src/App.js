@@ -18,7 +18,7 @@ function App() {
           <Videoplayer />
           <DragDrop />
           <Timeline/>
-          <img className='gif1' src='http://drive.google.com/uc?export=view&id=1aFUyPH1rf5DUwpbPF1qatRkp8lVU6gp4'/>
+          <img className='gif1' src='http://drive.google.com/uc?export=view&id=1i77YJkN8ciypvbZLv3c25bqEPIe3dLvW'/>
           <footer className='footer'>
             <ul>
               <p>Ekaterina Krysenkova</p>
