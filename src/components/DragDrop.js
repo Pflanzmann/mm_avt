@@ -17,11 +17,15 @@ const FilterImageList = [
     },
     {
         id: 1,  //to identify each draggable Filter/image
-        url: "https://www.4freephotos.com/medium/2015/Blurry-city-lights-7318.jpg",
+        url: "http://drive.google.com/uc?export=view&id=1oLVvf0WXDVAZQSSh5vrWQHqCCa6NBui7",
     },
     {
         id: 2,  //to identify each draggable Filter/image
-        url: "http://chhsarts.weebly.com/uploads/2/6/0/4/26049834/barack-obama-hope-a-g-8075457-0.jpg?250",
+        url: "http://drive.google.com/uc?export=view&id=1w-3bogLG14MreH_VD4WTgRFX6PdSpfex",
+    },
+    {
+        id: 3,  //to identify each draggable Filter/image
+        url: "http://drive.google.com/uc?export=view&id=1aFUyPH1rf5DUwpbPF1qatRkp8lVU6gp4",
     },
 ]
 
