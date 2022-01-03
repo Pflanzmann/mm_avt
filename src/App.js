@@ -1,10 +1,9 @@
-
 import './style/App.css';
 import Videoplayer from './Videoplayer';
 import { DndProvider } from "react-dnd"; //need to wrap highest order component
 import { HTML5Backend } from "react-dnd-html5-backend";
 import DragDrop from './components/DragDrop';
-import Timeline from "./timeline/Timeline.js"
+import Timeline from './timeline/Timeline';
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
           </header>
           <Videoplayer />
           <DragDrop />
-          {/* <Timeline /> */}
+          <Timeline/>
           <footer className='footer'>
             <ul>
               <p>Ekaterina Krysenkova</p>
@@ -41,7 +40,6 @@ function App() {
       </div>
 
     </DndProvider >
-  );
+  )
 }
-
 export default App;

@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import "./style/Videoplayer.css";
+import "./style/App.css";
+
 import video from "./assets/video.mp4";
 import useVideoPlayer from "./hooks/useVideoPlayer";
 import "boxicons";
-import Timeline from "timeline-editor-react";
 
 export default () => {
   const videoElement = useRef(null); //create videoElement's reference

@@ -44,9 +44,17 @@
 
 body{
   background-image: linear-gradient( rgba(4, 58, 59, 0.438), rgb(20, 201, 192));
+  display: grid;
+  grid-template-columns: 35% auto;
+  grid-template-areas: "header header"
+                        "filterImages videoPlayer"
+                        "something timeline"
+                        "footer footer";
+  
 }
 
-h1{
+header{
+  grid-area: header;
   font-size: 50px;
   color: rgb(224, 19, 190);
   text-align: center;
@@ -56,7 +64,19 @@ h1{
   text-decoration-color:rgba(4, 58, 59, 0.438);   */
 }
 
+.filter-images{
+  grid-area: filterImages;
+}
+.video-container{
+  grid-area: videoPlayer;
+}
+
+.timeline{
+  grid-area: timeline;
+}
+
 .footer{
+  grid-area: footer;
   display: flex;
   gap: 50px;
   justify-content: center;
@@ -65,6 +85,8 @@ h1{
   font-style: italic;
   color: rgb(102, 12, 87);
 }
+
+
 
 .footer-matrikel{
   font-size: 12px;

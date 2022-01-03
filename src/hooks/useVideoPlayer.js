@@ -42,7 +42,7 @@ const useVideoPlayer = (videoElement) => {
     //drag progress bar
     //single argument: event
     //convert event value String->number
-    //tell videoElement directly: current viewing time=value of manual change
+    //tell videoElement directly: curren*t viewing time=value of manual change
     //keep values of other properties
     //update only progress
     const handleVideoProgress = (event) => {
