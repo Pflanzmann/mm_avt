@@ -43,9 +43,10 @@
 }
 
 body{
-  background-image: linear-gradient( rgba(4, 58, 59, 0.438), rgb(20, 201, 192));
+  background-color: #5f9ea0;
   display: grid;
   grid-template-columns: 35% auto;
+
   grid-template-areas: "header header"
                         "filterImages videoPlayer"
                         "something timeline"
@@ -55,10 +56,12 @@ body{
 
 header{
   grid-area: header;
-  font-size: 50px;
+  font-size: 40px;
   color: rgb(224, 19, 190);
   text-align: center;
   font-style: normal;
+  height: 100%;
+  width: 100%;
   /* text-decoration-line: underline;
   text-decoration-style: dotted;
   text-decoration-color:rgba(4, 58, 59, 0.438);   */
@@ -66,13 +69,37 @@ header{
 
 .filter-images{
   grid-area: filterImages;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 100%;
+  margin: 0px 10%;
 }
 .video-container{
   grid-area: videoPlayer;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0px 10%;
+}
+
+.gif1{
+  grid-area: something;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0px 10%;
 }
 
 .timeline{
   grid-area: timeline;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+   margin: 0px 10%;
 }
 
 .footer{
@@ -85,8 +112,6 @@ header{
   font-style: italic;
   color: rgb(102, 12, 87);
 }
-
-
 
 .footer-matrikel{
   font-size: 12px;

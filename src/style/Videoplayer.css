@@ -5,11 +5,11 @@ body {
   */
   
   .video-container {
-    display: inline-block;
+    /* display: inline-block;
     justify-content: center;
     align-items: center;
     margin-left: 300px;
-    height: 80vh;
+    height: 80vh; */
   }
   
  
@@ -19,7 +19,6 @@ body {
     position: relative;
     bottom: 10px;
     padding: 14px;
-    margin-top: 10px;
     width: 100%;
     max-width: 750px;
   }
@@ -43,11 +42,11 @@ body {
     align-items: center;
     justify-content: space-evenly;
     position: relative;
-    bottom: 110px;
-    padding: 14px;
+    bottom: 100px;
+    padding: 10px;
     width: 100%;
     max-width: 750px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background: rgba(53, 117, 143, 0.404);
     box-shadow: 0 8px 32px 0 rgba(11, 99, 139, 0.555);
     backdrop-filter: blur(4px);
@@ -90,8 +89,8 @@ body {
     cursor: pointer;
   }
 
-  .timeline{
+   .timeline{
     position: fixed;
     width: 60%;
-  }
+  } 
 
