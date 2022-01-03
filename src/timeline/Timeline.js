@@ -13,6 +13,7 @@ export default () => {
         setDraggingState,
         setFilterBoxPosition,
         dropNewFilter,
+        deleteFilter,
     } = useTimeline();
 
     const [dropArea, setDropArea] = React.useState([]);
@@ -71,6 +72,9 @@ export default () => {
                                         width: filter.duration + 'px',
                                         marginLeft: filter.startTime,
                                     }}
+                                        onDoubleClick={() => {
+                                            deleteFilter(barIndex, filterIndex);
+                                        }}
                                         onMouseDown={(e) => {
                                             var bounds = e.target.getBoundingClientRect();
                                             var moveMouseX = e.clientX;

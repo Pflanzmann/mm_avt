@@ -1,5 +1,7 @@
 .timeline {
     position: relative;
+    overflow-y: scroll;
+
     margin-left: 310px;
     width: 100%;
     max-width: 750px;
@@ -28,7 +30,7 @@
 }
 
 .filterBox {
-    border-radius: 8px !important;
+    border-radius: 4px !important;
 
     position: absolute;
     display: inline-flex;

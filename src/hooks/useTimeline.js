@@ -42,7 +42,7 @@ const useTimeline = () => {
             return;
 
 
-            console.log("isResizing: " + draggingState.resizing)
+        console.log("isResizing: " + draggingState.resizing)
         if (draggingState.resizing) {
             console.log("isResizing")
             filterState.filterBars[draggingState.draggingFilterBarIndex].filters
@@ -99,6 +99,12 @@ const useTimeline = () => {
         setFilterBoxPosition(-1)
     }
 
+    const deleteFilter = (barIndex, filterIndex) => {
+        filterState.filterBars[barIndex].filters.splice(filterIndex, 1);
+
+        updateFilterBars();
+    }
+
     const updateFilterBars = () => {
         setFilterState({
             ...filterState,
@@ -112,6 +118,7 @@ const useTimeline = () => {
         setDraggingState,
         setFilterBoxPosition,
         dropNewFilter,
+        deleteFilter,
     };
 }
 
