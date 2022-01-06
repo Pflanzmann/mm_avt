@@ -7,8 +7,8 @@ export const FileUploader = ({onSuccess, visibility}) => {
         console.log(event.target.files[0])
         if (event.target.files[0].type === "video/mp4")
             setUploadedVideo(event.target.files[0])
-
     }
+    
     const handleSubmit = (event) => {
         event.preventDefault();
 

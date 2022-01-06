@@ -69,6 +69,27 @@ const useVideoPlayer = (videoElement) => {
             : (videoElement.current.muted = false);
     }, [playerState.isMuted, videoElement]);
 
+    const applyFilters = (props) => {
+        console.log(props)
+        axios.post(`//localhost:5000/filter`, { filters: props }, {})
+            .then((res) => {
+                console.log('Success in apply filter')
+                console.log(res.data)
+                onSuccess(res.data)
+                setFiltered(true)
+            })
+            .catch((e) => {
+                console.error('Error', e)
+            })
+    }
+
+    function onSuccess(uploadedVideo) {
+        console.log("On sucess in videoPlayer")
+        setUploadedVideo(uploadedVideo)
+        setUploaderVisibility("hidden")
+        setVideoVisibility("visible")
+    }
+
     //return state and all created functions
     return {
         playerState,
@@ -76,6 +97,7 @@ const useVideoPlayer = (videoElement) => {
         handleOnTimeUpdate,
         handleVideoProgress,
         toggleMute,
+        applyFilters,
     };
 };
 

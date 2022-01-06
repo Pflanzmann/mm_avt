@@ -18,35 +18,12 @@ const ApplyFilters = props => {
     }
 
     const applyFilters = () => {
-        setFiltersToApply(filters)
         const request = convertFilters(filters)
         props.handleFilters(request)
     }
 
     return (
         <div>
-            <h3>Select Filters</h3>
-            <ul>
-                {filters.map(({type}, index) => {
-                    return (
-                        <li key={index}>
-                            <div>
-                                <div className="left-section">
-                                    <input
-                                        type="checkbox"
-                                        id={`custom-checkbox-${index}`}
-                                        name={type}
-                                        value={type}
-                                        checked={checkedState[index]}
-                                        onChange={() => handleOnChange(index)}
-                                    />
-                                    <label htmlFor={`custom-checkbox-${index}`}>{type}</label>
-                                </div>
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
             <button onClick={applyFilters}>Apply Filter</button>
         </div>
     );

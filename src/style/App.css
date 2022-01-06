@@ -47,15 +47,6 @@
   max-width: 150vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .files input {
   outline: 2px dashed #92b0b3;
   outline-offset: -10px;
@@ -113,14 +104,12 @@
 body{
   background-color: #5f9ea0;
   display: grid;
-  grid-template-columns: 35% auto;
+  grid-template-columns: 25% auto;
 
   grid-template-areas: "header header"
-                        "filterImages videoPlayer"
-                        "something1 something2"
+                        "filterImages videoDiv"
                         "something3 timeline"
                         "footer footer";
-  
 }
 
 header{
@@ -153,15 +142,6 @@ header{
   margin: 0px 10%;
 }
 
-.gif1{
-  grid-area: something1;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  margin: 0px 10%;
-}
-
 .timeline{
   grid-area: timeline;
   justify-content: center;
@@ -187,4 +167,11 @@ header{
   margin-top: -20px;
 }
 
-
+.videoDiv {
+  grid-area: videoDiv;
+  margin: 0px 15%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

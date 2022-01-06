@@ -4,9 +4,9 @@ import "../style/App.css";
 import React from 'react';
 import useTimeline from '../hooks/useTimeline';
 import { useDrop } from 'react-dnd';
-import FilterImage from './FilterImage';
 
 import * as Constants from "../constants/FilterImageList.js";
+import ApplyFilters from "../helper/ApplyFilters";
 
 export default () => {
     const {
@@ -17,6 +17,7 @@ export default () => {
         setFilterBoxPosition,
         dropNewFilter,
         deleteFilter,
+        applyFilters,
     } = useTimeline();
 
     const [dropArea, setDropArea] = React.useState([]);
@@ -62,6 +63,7 @@ export default () => {
                 setFilterBoxPosition(filterBoxGrab)
             }}
         >
+            <button onClick={applyFilters}>applyFilters</button>
             {
                 filterState.filterBars.map((filterBar, barIndex) => (
                     <div className="filterLine">

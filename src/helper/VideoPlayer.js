@@ -6,14 +6,32 @@ import { Video } from "../helper/Video";
 import axios from "axios";
 import ApplyFilters from "../helper/ApplyFilters";
 import { useBeforeunload } from 'react-beforeunload';
+import useTimeline from '../hooks/useTimeline';
 
 export default () => {
     const [uploderVisibility, setUploaderVisibility] = useState("visible")
     const [viseoVisibility, setVideoVisibility] = useState("hidden")
     const [uploadedVideo, setUploadedVideo] = useState(null)
     const [filtered, setFiltered] = useState(false)
+
+    const {
+        filterState,
+        setFilterState,
+        draggingState,
+        setDraggingState,
+        setFilterBoxPosition,
+        dropNewFilter,
+        deleteFilter,
+    } = useTimeline();
+
     useBeforeunload(() => deleteUploadedAndFilteredVideos());
     function applyFilters(props) {
+        filterState.filterBars.map(filterBar => {
+            filterBar.filters.map(filter => {
+                console.log("filter: " + filter.startTime)
+            })
+        })
+
         console.log(props)
         axios.post(`//localhost:5000/filter`, { filters: props }, {})
             .then((res) => {
@@ -67,7 +85,7 @@ export default () => {
     }
 
     return (
-        <div>
+        <div className='videoDiv'>
             <FileUploader id="uploader" onSuccess={onSuccess} visibility={uploderVisibility} />
             <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={viseoVisibility} />
             <div />
