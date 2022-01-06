@@ -4,8 +4,8 @@ export let filterBars = [
         filters: [
             {
                 filterId: 0,
-                startTime: 3,
-                duration: 8,
+                startTime: 20,
+                duration: 30,
             }
         ]
     },
@@ -15,12 +15,12 @@ export let filterBars = [
             {
                 filterId: 1,
                 startTime: 0,
-                duration: 4,
+                duration: 40,
             },
             {
                 filterId: 1,
-                startTime: 7,
-                duration: 10,
+                startTime: 100,
+                duration: 100,
             }
         ]
     },
