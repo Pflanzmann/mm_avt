@@ -6,7 +6,6 @@ import { Video } from "../helper/Video";
 import axios from "axios";
 import ApplyFilters from "../helper/ApplyFilters";
 import { useBeforeunload } from 'react-beforeunload';
-import useTimeline from '../hooks/useTimeline';
 
 export default () => {
     const [uploderVisibility, setUploaderVisibility] = useState("visible")
@@ -14,24 +13,8 @@ export default () => {
     const [uploadedVideo, setUploadedVideo] = useState(null)
     const [filtered, setFiltered] = useState(false)
 
-    const {
-        filterState,
-        setFilterState,
-        draggingState,
-        setDraggingState,
-        setFilterBoxPosition,
-        dropNewFilter,
-        deleteFilter,
-    } = useTimeline();
-
     useBeforeunload(() => deleteUploadedAndFilteredVideos());
     function applyFilters(props) {
-        filterState.filterBars.map(filterBar => {
-            filterBar.filters.map(filter => {
-                console.log("filter: " + filter.startTime)
-            })
-        })
-
         console.log(props)
         axios.post(`//localhost:5000/filter`, { filters: props }, {})
             .then((res) => {

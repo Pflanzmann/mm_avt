@@ -2,12 +2,23 @@ import * as Constants from "../constants/FilterBars.js"
 
 export function convertFilters(filters) {
     let request = []
+    const filterBarRight = document.getElementById("filterBar").getBoundingClientRect().right;
+    const videoDuration = document.getElementById("videoSource").duration;
+
     Constants.filterBars.map(filterBar => {
         filterBar.filters.map(filter => {
             let startTime = filter.startTime
             let endTime = filter.startTime + filter.duration
 
-            console.log("start: " + startTime + " | end: " + endTime)
+            let startTimePercent = 100 / filterBarRight * startTime;
+            let endTimePercent = 100 / filterBarRight * endTime;
+
+            let relativeVideoStart = videoDuration / 100 * startTimePercent;
+            let relativeVideoEnd = videoDuration / 100 * endTimePercent;
+
+            startTime = Math.round(relativeVideoStart);
+            endTime = Math.round(relativeVideoEnd);
+
             switch (filter.filterId) {
                 case 0:
                     request.push(`unsharp=7:7:-2:7:7:-2:enable=\'between(t,${startTime},${endTime})\'`)

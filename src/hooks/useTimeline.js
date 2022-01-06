@@ -32,7 +32,7 @@ const useTimeline = () => {
         var newPosition = Math.min(
             position - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
             [draggingState.draggingFilterIndex].duration / 2,
-            (document.getElementById("timeline").getBoundingClientRect().right - document.getElementById("filterBar").getBoundingClientRect().left - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
+            (document.getElementById("filterBar").getBoundingClientRect().right - document.getElementById("filterBar").getBoundingClientRect().left - filterState.filterBars[draggingState.draggingFilterBarIndex].filters
             [draggingState.draggingFilterIndex].duration)
         );
 
