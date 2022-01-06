@@ -2,7 +2,7 @@ import * as Constants from "../constants/FilterBars.js"
 
 export function convertFilters(filters) {
     let request = []
-    const filterBarRight = document.getElementById("filterBar").getBoundingClientRect().right;
+    const filterBarRight = document.getElementById("filterBar").getBoundingClientRect().right - document.getElementById("filterBar").getBoundingClientRect().left;
     const videoDuration = document.getElementById("videoSource").duration;
 
     Constants.filterBars.map(filterBar => {
