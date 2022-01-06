@@ -6,7 +6,7 @@ import useTimeline from '../hooks/useTimeline';
 import { useDrop } from 'react-dnd';
 import FilterImage from './FilterImage';
 
-import * as Constants from "../Constants/FilterImageList.js";
+import * as Constants from "../constants/FilterImageList.js";
 
 export default () => {
     const {
@@ -91,6 +91,7 @@ export default () => {
                                     >
                                     </div>
                                 ))}
+
                         </div>
                     </div>
                 ))

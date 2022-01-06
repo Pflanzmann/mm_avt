@@ -3,7 +3,7 @@ import FilterImage from './FilterImage';
 import { useDrop } from 'react-dnd';
 import "../style/DragDrop.css";
 import "../style/App.css";
-import * as Constants from "../Constants/FilterImageList.js";
+import * as Constants from "../constants/FilterImageList.js";
 
 function DragDrop() {
     return (
