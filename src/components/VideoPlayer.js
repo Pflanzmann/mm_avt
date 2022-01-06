@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import "./style/Videoplayer.css";
-import "./style/App.css";
+import "../style/VideoPlayer.css";
+import "../style/App.css";
 
-import video from "./assets/video.mp4";
-import useVideoPlayer from "./hooks/useVideoPlayer";
+import video from "../assets/video.mp4";
+import useVideoPlayer from "../hooks/useVideoPlayer";
 import "boxicons";
 
 export default () => {
@@ -54,7 +54,7 @@ export default () => {
             )}
           </button>
         </div>
-       
+
       </div>
     </div>
   )

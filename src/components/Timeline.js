@@ -4,6 +4,9 @@ import "../style/App.css";
 import React from 'react';
 import useTimeline from '../hooks/useTimeline';
 import { useDrop } from 'react-dnd';
+import FilterImage from './FilterImage';
+
+import * as Constants from "../Constants/FilterImageList.js";
 
 export default () => {
     const {
@@ -63,7 +66,7 @@ export default () => {
                 filterState.filterBars.map((filterBar, barIndex) => (
                     <div className="filterLine">
                         <div className="filterTitleBox">
-                            {filterBar.filterId}
+                            <img className="timelineTitlePicture" src={Constants.FilterImageList[filterBar.filterId].url} />
                         </div>
                         <div className="filterBar" id="filterBar">
                             {

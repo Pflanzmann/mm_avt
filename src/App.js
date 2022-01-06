@@ -1,24 +1,22 @@
 import './style/App.css';
-import Videoplayer from './Videoplayer';
+import VideoPlayer from './components/VideoPlayer';
 import { DndProvider } from "react-dnd"; //need to wrap highest order component
 import { HTML5Backend } from "react-dnd-html5-backend";
 import DragDrop from './components/DragDrop';
-import Timeline from './timeline/Timeline';
+import Timeline from './components/Timeline';
 
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-
-
       <div className="App">
         <body>
           <header>
             <h1>Multimedia AVT</h1>
           </header>
-          <Videoplayer />
+          <VideoPlayer />
           <DragDrop />
-          <Timeline/>
-          <img className='gif1' src='http://drive.google.com/uc?export=view&id=1i77YJkN8ciypvbZLv3c25bqEPIe3dLvW'/>
+          <Timeline />
+          <img className='gif1' src='http://drive.google.com/uc?export=view&id=1i77YJkN8ciypvbZLv3c25bqEPIe3dLvW' />
           <footer className='footer'>
             <ul>
               <p>Ekaterina Krysenkova</p>
