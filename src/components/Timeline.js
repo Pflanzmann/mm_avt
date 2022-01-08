@@ -18,18 +18,18 @@ export default () => {
         deleteFilter,
     } = useTimeline();
 
-    const [dropArea, setDropArea] = React.useState([]);
-
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "image",
-        drop: (item) => addFilterToDropArea(item.id),
+        drop: (item, monitor) => {
+            addFilterToDropArea(item.id, monitor.getClientOffset().x)
+        },
         collect: (monitor) => ({
-            isOver: monitor.isOver(),
+            isOver: monitor.isOver,
         }),
     }));
 
-    const addFilterToDropArea = (id) => {
-        dropNewFilter(id)
+    const addFilterToDropArea = (id, positionX) => {
+        dropNewFilter(id, positionX)
     };
 
     return (
@@ -61,6 +61,17 @@ export default () => {
                 setFilterBoxPosition(filterBoxGrab)
             }}
         >
+            {
+                <div className="filterLine">
+                    <div className="filterTitleBox">
+                    </div>
+                    <div className="scale">
+                        {
+
+                        }
+                    </div>
+                </div>
+            }
             {
                 filterState.filterBars.map((filterBar, barIndex) => (
                     <div className="filterLine">

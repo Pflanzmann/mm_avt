@@ -44,17 +44,17 @@ const useTimeline = () => {
         updateFilterBars();
     };
 
-    const dropNewFilter = (filterId) => {
-        console.log("update drop: " + filterId)
+    const dropNewFilter = (filterId, globalPosition) => {
         var addedFilter = false;
+        var relativePosition = globalPosition - document.getElementById("filterBar").getBoundingClientRect().left;
 
         filterState.filterBars.forEach(filterBar => {
             if (filterBar.filterId == filterId) {
                 filterBar.filters.push(
                     {
                         filterId: filterId,
-                        startTime: 10,
-                        duration: 20,
+                        startTime: relativePosition,
+                        duration: 50,
                     })
                 addedFilter = true;
             }
@@ -66,13 +66,13 @@ const useTimeline = () => {
                 filters: [
                     {
                         filterId: filterId,
-                        startTime: 10,
-                        duration: 20,
+                        startTime: relativePosition,
+                        duration: 50,
                     }
                 ]
             })
 
-        setFilterBoxPosition(-1)
+        updateFilterBars();
     }
 
     const deleteFilter = (barIndex, filterIndex) => {

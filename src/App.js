@@ -1,5 +1,5 @@
 import './style/App.css';
-import VideoPlayer from './helper/VideoPlayer.js';
+import VideoPlayer from './components/VideoPlayer.js';
 import { DndProvider } from "react-dnd"; //need to wrap highest order component
 import { HTML5Backend } from "react-dnd-html5-backend";
 import DragDrop from './components/DragDrop';

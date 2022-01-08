@@ -1,63 +1,82 @@
-import React, { useRef } from "react";
-import "../style/VideoPlayer.css";
-import "../style/App.css";
+import '../style/App.css';
 
-import video from "../assets/video.mp4";
-import useVideoPlayer from "../hooks/useVideoPlayer";
-import "boxicons";
+import React, { useState } from "react";
+import { FileUploader } from "../helper/FileUploader";
+import { Video } from "../helper/Video";
+import axios from "axios";
+import ApplyFilters from "../helper/ApplyFilters";
+import { useBeforeunload } from 'react-beforeunload';
 
 export default () => {
-  const videoElement = useRef(null); //create videoElement's reference
+    const [uploderVisibility, setUploaderVisibility] = useState("visible")
+    const [viseoVisibility, setVideoVisibility] = useState("hidden")
+    const [uploadedVideo, setUploadedVideo] = useState(null)
+    const [filtered, setFiltered] = useState(false)
 
-  //get playerState and functions from hook
-  const {
-    playerState,
-    togglePlay,
-    handleOnTimeUpdate,
-    handleVideoProgress,
-    toggleMute,
-  } = useVideoPlayer(videoElement);
+    useBeforeunload(() => deleteUploadedAndFilteredVideos());
+    function applyFilters(props) {
+        console.log(props)
+        axios.post(`//localhost:5000/filter`, { filters: props }, {})
+            .then((res) => {
+                console.log('Success in apply filter')
+                console.log(res.data)
+                onSuccess(res.data)
+                setFiltered(true)
+            })
+            .catch((e) => {
+                console.error('Error', e)
+            })
+    }
 
-  return (
-    <div className="video-container">
-      <div className="videoWrapper">
-        <video
-          src={video}
-          ref={videoElement}
-          onTimeUpdate={handleOnTimeUpdate}
-        />
+    function onSuccess(uploadedVideo) {
+        console.log("On sucess in videoPlayer")
+        setUploadedVideo(uploadedVideo)
+        setUploaderVisibility("hidden")
+        setVideoVisibility("visible")
+    }
 
-        <div className="controls">
-          <div className="actions">
-            <button onClick={togglePlay}>
-              {!playerState.isPlaying ? (
-                <box-icon name="play"></box-icon>
-              ) : (
-                <box-icon name="pause"></box-icon>
-              )}
-            </button>
-          </div>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={playerState.progress}
-            onChange={(e) => handleVideoProgress(e)}
-          />
-          <button
-            className="mute-btn"
-            onClick={toggleMute}>
-            {!playerState.isMuted ? (
-              <box-icon name="volume-full"></box-icon>
-            ) : (
-              <box-icon name="volume-mute" type="solid"></box-icon>
-            )}
-          </button>
+    function downloadVideo() {
+        console.log("ready for download")
+        fetch('http://localhost:5000/filtered.mp4')
+            .then(response => {
+                response.blob().then(blob => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'filtered.mp4';
+                    a.click();
+                });
+            });
+    }
+
+    function deleteUploadedAndFilteredVideos() {
+        axios.post(`//localhost:5000/delete`)
+            .then((res) => {
+                console.log('Success in deleting videos')
+            })
+            .catch((e) => {
+                console.error('Error', e)
+            })
+    }
+
+    function loadNewVideo() {
+        setUploadedVideo(null)
+        setFiltered(false)
+        setUploaderVisibility("visible")
+        setVideoVisibility("hidden")
+        deleteUploadedAndFilteredVideos()
+    }
+
+    return (
+        <div className='videoDiv'>
+            <FileUploader id="uploader" onSuccess={onSuccess} visibility={uploderVisibility} />
+            <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={viseoVisibility} />
+            <div />
+            <ApplyFilters handleFilters={applyFilters} />
+            <div />
+            <button disabled={!filtered} onClick={downloadVideo}>Download</button>
+            <button onClick={loadNewVideo}>Upload new video</button>
+
         </div>
-
-      </div>
-    </div>
-  )
-};
-
-
+    )
+}

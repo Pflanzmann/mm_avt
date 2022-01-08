@@ -12,6 +12,7 @@
     box-shadow: 0 8px 32px 0 rgba(85, 68, 14, 0.37);}
 .filterLine {
     display: flex;
+    margin: auto;
 }
 
 .filterTitleBox {
@@ -34,6 +35,17 @@
     position: relative;
     height: 20px;
     width: 100%;
+}
+
+.scale {
+    display: flex;
+    table-layout: fixed;
+
+    height: 20px;
+    width: 100%;
+    margin: auto;
+
+    background: white;
 }
 
 .filterBox {
