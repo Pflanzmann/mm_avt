@@ -40,6 +40,12 @@
     width: 100%;
     height: 100%;
     margin: auto;
+
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: #073b4c;
 }
 
 .filterBar {
@@ -72,5 +78,9 @@
    
     height: 90%;
 
-    border: 1px solid ;
+    border: 1px solid;
+}
+
+h2{
+    color: #073b4c;
 }
