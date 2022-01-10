@@ -19,7 +19,7 @@
     display: block;
     height: 20px;
     width: 20px;
-    border: 1px solid black;
+    margin: auto;
 }
 
 .filterBoxMoveArea {
@@ -40,8 +40,6 @@
     width: 100%;
     height: 100%;
     margin: auto;
-
-    padding: 10px;
 
     border-style: solid;
     border-width: 2px;
@@ -79,8 +77,4 @@
     height: 90%;
 
     border: 1px solid;
-}
-
-h2{
-    color: #073b4c;
 }

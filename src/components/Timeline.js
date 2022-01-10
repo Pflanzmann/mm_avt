@@ -67,8 +67,8 @@ export default () => {
                     <div className="filterTitleBox">
                     </div>
                     <div className="scale">
-                        {
-
+                        {   
+                            
                         }
                     </div>
                 </div>

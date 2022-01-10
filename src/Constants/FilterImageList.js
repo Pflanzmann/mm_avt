@@ -19,4 +19,12 @@ export let FilterImageList = [
         id: 3,  //to identify each draggable Filter/image
         url: "http://drive.google.com/uc?export=view&id=1aFUyPH1rf5DUwpbPF1qatRkp8lVU6gp4",
     },
+    {
+        id: 4,  //to identify each draggable Filter/image
+        url: "http://drive.google.com/uc?export=view&id=1WI184Hoy6CSb3npAl0sqMGnq026DA4pL",
+    },
+    {
+        id: 5,  //to identify each draggable Filter/image
+        url: "http://drive.google.com/uc?export=view&id=1OqRnv-23KS_NX-zQU0xRzK3dwMpdd3nv",
+    },
 ]
