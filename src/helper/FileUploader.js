@@ -1,24 +1,21 @@
-import {useState} from "react";
 import axios from "axios";
 
 export const FileUploader = ({onSuccess, visibility}) => {
-    const [uploadedVideo, setUploadedVideo] = useState()
     const onInputChange = (event) => {
         console.log(event.target.files[0])
         if (event.target.files[0].type === "video/mp4")
-            setUploadedVideo(event.target.files[0])
+            uploadVideo(event, event.target.files[0]);
     }
-    
-    const handleSubmit = (event) => {
+
+    const uploadVideo = (event, video) => {
         event.preventDefault();
 
         const data = new FormData();
 
-        data.append('file', uploadedVideo);
+        data.append('file', video);
         console.log(data)
         axios.post('//localhost:5000/upload', data)
             .then((res) => {
-                console.log('Success')
                 onSuccess(res.data)
                 document.getElementById("#").className = "hidden"
             })
@@ -28,12 +25,11 @@ export const FileUploader = ({onSuccess, visibility}) => {
     }
 
     return (
-        <form method="post" action="#" id="#" onSubmit={handleSubmit} className={visibility}>
+        <form method="post" action="#" id="#" className={visibility}>
             <div className="form-group files">
                 <label>Upload your video</label>
                 <input type="file" onChange={onInputChange} className="form-control"/>
             </div>
-            <button>Upload</button>
         </form>
     )
 }

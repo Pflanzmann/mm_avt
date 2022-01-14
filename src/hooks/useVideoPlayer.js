@@ -19,7 +19,7 @@ const useVideoPlayer = (videoElement) => {
         });
     };
 
-    //useEffect to pause video or not 
+    //useEffect to pause video or not
     //through value of isPlaying property
     useEffect(() => {
         playerState.isPlaying
@@ -69,7 +69,7 @@ const useVideoPlayer = (videoElement) => {
             : (videoElement.current.muted = false);
     }, [playerState.isMuted, videoElement]);
 
-    const applyFilters = (props) => {
+/*    const applyFilters = (props) => {
         console.log(props)
         axios.post(`//localhost:5000/filter`, { filters: props }, {})
             .then((res) => {
@@ -88,7 +88,7 @@ const useVideoPlayer = (videoElement) => {
         setUploadedVideo(uploadedVideo)
         setUploaderVisibility("hidden")
         setVideoVisibility("visible")
-    }
+    }*/
 
     //return state and all created functions
     return {
@@ -97,7 +97,7 @@ const useVideoPlayer = (videoElement) => {
         handleOnTimeUpdate,
         handleVideoProgress,
         toggleMute,
-        applyFilters,
+       // applyFilters,
     };
 };
 
