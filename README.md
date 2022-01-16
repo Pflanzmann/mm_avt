@@ -1,36 +1,45 @@
-Web-Anwendung für Video- und Audiofilter
+# Web-Anwendung für Video- und Audiofilter
 
-Overview
-Anleitung
-Technische Details 
-Fazit
-Helpful Links?
+## Projektaufgabe für Audio- & Videotechnik 
+_htw WiSe21/22_
 
-Projektbeschreibung - Overview
+_Dozent*innen: Elisabeth Thielen, Julien Letellier_
+
+## Inhaltsverzeichnis
+* [Projektbeschreibung](#Projektbeschreibung-Overview)
+* [Anleitung](#Anleitung)
+* [Technische Details](#Technische-Details)
+* [Fazit](#Fazit)
+* [Links & Quellen](#Fazit)
+
+
+
+## Projektbeschreibung - Overview
 Herzlich willkommen in unserem Projekt für Audio- und Videotechnik im WiSe 21/22.
 Ziel unseres Projektes war es, eine Webanwendung zu entwickeln, in der User*innen Videos hochladen, diese mit verschiedenen Video- und Audiofiltern verändern und wieder herunterladen können.
 Dabei können beliebig viele Filter kombiniert werden, ihre Dauer und Häufigkeit kann angepasst werden.
 
 Es kann zwischen folgenden Filtern ausgewählt werden:
-Video:
-black&white
-blurry
-noise
-RGB-shift
-warm
-negation
+#### Video:
+- black&white
+- blurry
+- noise
+- RGB-shift
+- warm
+- negation
 
-Audio:
-audiofilter1
-audiofilter2
-audiofilter3
+#### Audio:
+- audiofilter1
+- audiofilter2
+- audiofilter3
 
-Technische Details
-verwendete Bibliotheken, frameworks & warum
 
-How to - install & run 
 
-How to - Anleitung
+## Anleitung 
+
+### installieren & los 
+
+### Benutzung
 Video hochladen
 Video runterladen
 
@@ -38,9 +47,10 @@ Filter hinzufügen
 Filter editieren
 Filter löschen
 
+## Technische Details
+verwendete Bibliotheken, frameworks & warum
 
-
-Fazit
+## Fazit
 - was haben wir gelernt?
 
 Contributors:
