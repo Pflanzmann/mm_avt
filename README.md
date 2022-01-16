@@ -33,12 +33,31 @@ Dabei können beliebig viele Filter kombiniert werden, ihre Dauer und Häufigkei
 
 Es kann zwischen folgenden Filtern ausgewählt werden:
 ### _Video:_
-- black&white
+      
+- black&white 
+
+    <img src="http://drive.google.com/uc?export=view&id=10370LLHmGOBqHDJ8hv9OJ-TTBlNloonh" alt="" height="50">
+
 - blurry
+
+    <img src="http://drive.google.com/uc?export=view&id=1miqXC8d0Uh3yK_8auMPEsMm2ahEO2Ybf" alt="" height="50">
+
 - noise
+
+    <img src="http://drive.google.com/uc?export=view&id=1CxSubZcVErVkusd2IZry_dFtBLJ9Nn1_" alt="" height="50">
+
 - RGB-shift
+
+    <img src="http://drive.google.com/uc?export=view&id=13XCEtVo0XnU26ooVQWt5Yh0Pu-fqvKbb" alt="" height="50">
+    
+
 - warm
+
+    <img src="http://drive.google.com/uc?export=view&id=1LNsrmVdc333Q5Dt3HHptOES6tpGCdLyl" alt="" height="50">
+
 - negation
+
+    <img src="http://drive.google.com/uc?export=view&id=1V2eZ0_6rHGys28bxwa7znCXDG3FhTJ5M" alt="" height="50">
 
 ### _Audio:_
 - audiofilter1
@@ -55,7 +74,7 @@ Prototyp - video
 * [Benutzung](#anleitung-benutzung)
 
 ## Anleitung _Installation und Run_ 
-Dieses Projekt benötigt [Node.js](https://nodejs.org/), sowie [Codex ffmpeg](https://www.gyan.dev/ffmpeg/builds/) (_ffmpeg-git-essentials.7z_)  um zu laufen.
+Dieses Projekt benötigt [Node.js](https://nodejs.org/), sowie [Codex ffmpeg](https://www.gyan.dev/ffmpeg/builds/) (_older builds_ffmpeg-2022-01-06-git-essentials_build.7z_)  um zu laufen.
 
 * Nach clonen des Repos die dependencies installieren:
 ```sh
@@ -84,6 +103,8 @@ npx nodemon server.js
 ```sh
 npm start
 ```
+
+Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen Google Chrome) unter ```localhost:8080 ``` aufgerufen werden.
 
 ## Anleitung _Benutzung_
 * Video hochladen
