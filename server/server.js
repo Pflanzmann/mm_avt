@@ -8,8 +8,8 @@ const fs = require('fs');
 const app = express();
 
 //make paths variables instead of direct paths
-ffmpeg.setFfmpegPath("C:/Users/Ronny/Desktop/ffmpeg/bin/ffmpeg.exe")
-ffmpeg.setFfprobePath("C:/Users/Ronny/Desktop/ffmpeg/bin")
+ffmpeg.setFfmpegPath("C:/Users/Paula/Desktop/HTW_WiSe21-22/AVT/ffmpeg/bin/ffmpeg.exe")
+ffmpeg.setFfprobePath("C:/Users/Paula/Desktop/HTW_WiSe21-22/AVT/ffmpeg/bin")
 
 app.use(bodyParser.json());
 app.use(cors());

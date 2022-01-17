@@ -138,8 +138,6 @@ header{
 }
 
 button{
-  display: left;
-  justify-content: center;
   margin: 0.3vw;
   text-align: center;
   font-size: 15px;
