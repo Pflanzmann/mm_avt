@@ -9,7 +9,7 @@ const ApplyFilters = props => {
 
     return (
         <div>
-            <button onClick={applyFilters}>Apply Filter</button>
+            <button classname="btn applybtn" onClick={applyFilters}>Apply Filter</button>
         </div>
     );
 }
