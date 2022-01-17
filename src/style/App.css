@@ -127,17 +127,17 @@ header{
 .footer{
   grid-area: footer;
   display: flex;
-  gap: 50px;
+  gap: 10px;
   justify-content: center;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
   font-style: italic;
   color: rgb(102, 12, 87);
 }
 
 .footer-matrikel{
   font-size: 12px;
-  margin-top: -20px;
+  margin-top: -17px;
 }
 
 button{
