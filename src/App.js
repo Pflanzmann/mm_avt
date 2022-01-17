@@ -15,7 +15,7 @@ function App() {
           </header>
           <VideoPlayer />
           <DragDrop />
-          <Timeline />
+          <Timeline className/>
           <footer className='footer'>
             <ul>
               <p>Ekaterina Krysenkova</p>

@@ -1,9 +1,7 @@
 .timeline {
     position: relative;
-
     margin-left: 20%;
     width: 100%;
-    max-width: 750px;
     border: 5px;
     border-style: double; 
     border-color: darkmagenta;

@@ -1,5 +1,4 @@
 import "../style/Timeline.css";
-import "../style/App.css";
 
 import React from 'react';
 import useTimeline from '../hooks/useTimeline';

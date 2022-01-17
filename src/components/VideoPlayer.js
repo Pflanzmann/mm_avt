@@ -1,4 +1,3 @@
-import '../style/App.css';
 
 import React, { useState } from "react";
 import { FileUploader } from "../helper/FileUploader";
