@@ -6,6 +6,7 @@ import useTimeline from '../hooks/useTimeline';
 import { useDrop } from 'react-dnd';
 
 import * as Constants from "../constants/FilterImageList.js";
+import * as Colors from "../constants/FilterBoxColors.js";
 
 export default () => {
     const {
@@ -84,6 +85,7 @@ export default () => {
                                     <div className="filterBox" style={{
                                         width: filter.duration + 'px',
                                         marginLeft: filter.startTime,
+                                        backgroundColor: Colors.FilterBoxColors[barIndex % Colors.FilterBoxColors.length].value,
                                     }}
                                         onDoubleClick={() => {
                                             deleteFilter(barIndex, filterIndex);
@@ -99,6 +101,12 @@ export default () => {
                                             })
                                         }}
                                     >
+                                        {
+                                            <div className="filterBoxResizeArea">
+                                                <div className="filterBoxMoveArea">
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
                                 ))}
 
