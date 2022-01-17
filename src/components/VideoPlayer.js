@@ -73,8 +73,8 @@ export default () => {
             <div />
             <ApplyFilters handleFilters={applyFilters} />
             <div />
-            <button className="downloadbtn" disabled={!filtered} onClick={downloadVideo}>Download</button>
-            <button className="uploadbtn" onClick={loadNewVideo}>Upload new video</button>
+            <button disabled={!filtered} onClick={downloadVideo}>Download</button>
+            <button onClick={loadNewVideo}>Upload new video</button>
 
         </div>
     )

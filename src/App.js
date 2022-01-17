@@ -8,35 +8,35 @@ import Timeline from './components/Timeline';
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="App">
-        <body>
-          <header>
-            <h1>Multimedia AVT</h1>
-          </header>
-          <VideoPlayer />
-          <DragDrop />
-          <Timeline className/>
-          <footer className='footer'>
-            <ul>
-              <p>Ekaterina Krysenkova</p>
-              <p className='footer-matrikel'>0573734</p>
-            </ul>
-            <ul>
-              <p>Paula Pätzold</p>
-              <p className='footer-matrikel'>0573372</p>
-            </ul>
-            <ul>
-              <p>Philip Blankenburg</p>
-              <p className='footer-matrikel'>0571740</p>
-            </ul>
-            <ul>
-              <p>Ronny Brzeski</p>
-              <p className='footer-matrikel'>0569420</p>
-            </ul>
-          </footer>
-        </body>
-      </div>
+        <div className="App">
 
+          <body>
+            <header>
+              <h1>Multimedia AVT</h1>
+            </header>
+            <VideoPlayer />
+            <DragDrop />
+            <Timeline className />
+            <footer className='footer'>
+              <ul>
+                <p>Ekaterina Krysenkova</p>
+                <p className='footer-matrikel'>0573734</p>
+              </ul>
+              <ul>
+                <p>Paula Pätzold</p>
+                <p className='footer-matrikel'>0573372</p>
+              </ul>
+              <ul>
+                <p>Philip Blankenburg</p>
+                <p className='footer-matrikel'>0571740</p>
+              </ul>
+              <ul>
+                <p>Ronny Brzeski</p>
+                <p className='footer-matrikel'>0569420</p>
+              </ul>
+            </footer>
+          </body>
+        </div>
     </DndProvider >
   )
 }
