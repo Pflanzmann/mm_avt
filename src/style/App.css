@@ -1,7 +1,7 @@
 
 .video-frame {
   max-height: 80vh;
-  max-width: 150vh;
+  max-width: 140vh;
 }
 
 .files input {
@@ -22,6 +22,7 @@
   transition: outline-offset .15s ease-in-out, background-color .15s linear; 
   border: 1px solid #92b0b3;
 }
+
 .files{ 
   position:relative
 }
@@ -70,10 +71,6 @@
   visibility: visible;
 }
 
-.App{
- 
-  
-}
 body{
   background-image: linear-gradient(#118ab2, #073b4c);
   display: grid;
@@ -102,17 +99,16 @@ header{
   justify-content: center;
   align-items: center;
   height: 100%;
-  max-height: 300px;
+  max-height: 75vh;
   width: 100%;
-  max-width: 170px;
-  margin: 0px 30%;
+  max-width: 13vw;
+  margin: 0px 2vw;
 }
 
 .videoDiv {
   grid-area: videoDiv;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
 }
 
@@ -122,31 +118,29 @@ header{
   align-items: center;
   height: 100%;
   width: 100%;
+  max-width: 140vh;
   
 }
 
 .footer{
   grid-area: footer;
   display: flex;
-  gap: 10px;
+  gap: 1vw;
   justify-content: center;
   text-align: center;
-  font-size: 13px;
+  font-size: 2vh;
   font-style: italic;
   color: rgb(224, 19, 190);
 }
 
 .footer-matrikel{
-  font-size: 12px;
-  margin-top: -17px;
+  margin-top: -2vh;
 }
-
-
 
 button{
   display: left;
   justify-content: center;
-  margin: 2px;
+  margin: 0.3vw;
   text-align: center;
   font-size: 15px;
   text-transform: uppercase;
@@ -158,7 +152,6 @@ button{
   border-color: #0a485cb0;
   border-radius: 5px;
   box-shadow: 0 1px 0px 1px #073b4cbb;
-  
 }
 
 button:hover {
