@@ -1,5 +1,6 @@
 .modal {
-  position: fixed;
+  position: relative;
+  z-index: 1000;
   top: 0;
   left: 0;
   width:100%;
@@ -8,7 +9,7 @@
 }
 
 .modal-main {
-  position:fixed;
+  position: fixed;
   overflow: auto;
   display: block;
   background-image: linear-gradient(#118ab2, #0c5972);
@@ -43,8 +44,6 @@
 }
 
 .tutorialbtn{
-  grid-area: header;
-  display: flex;
   justify-content: center;
   font-size: 20px;
   border: 2px dotted;
