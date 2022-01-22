@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export const Video = ({ uploadedVideo, filtered, visibility }) => {
     const [videoSource, setVideoSource] = useState()
     useEffect(() => {
-        if (uploadedVideo === undefined || uploadedVideo == null) {
+        if (uploadedVideo === undefined || uploadedVideo === null) {
             return <div />
         }
         if (filtered) {
@@ -19,7 +19,7 @@ export const Video = ({ uploadedVideo, filtered, visibility }) => {
     )
 
     return <div id="video-wrapper" className={visibility}>
-        <video id="videoSource" key={videoSource} className="video-frame" controls loop>
+        <video id="videoSource" key={videoSource} crossOrigin="anonymous" className="video-frame" controls loop>
             <source src={videoSource} />
         </video>
 
