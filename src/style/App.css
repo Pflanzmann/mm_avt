@@ -15,19 +15,19 @@
   width: 100% !important;
 }
 
-.files input:focus{     
-  outline: 2px dashed #92b0b3; 
+.files input:focus{
+  outline: 2px dashed #92b0b3;
   outline-offset: -10px;
   -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-  transition: outline-offset .15s ease-in-out, background-color .15s linear; 
+  transition: outline-offset .15s ease-in-out, background-color .15s linear;
   border: 1px solid #92b0b3;
 }
 
-.files{ 
+.files{
   position:relative
 }
 
-.files:after {  
+.files:after {
   pointer-events: none;
   position: absolute;
   top: 60px;
@@ -74,13 +74,13 @@
 body{
   background-image: linear-gradient(#118ab2, #073b4c);
   display: grid;
-  
+
   grid-template-areas: "header header"
                        "filterImages videoDiv"
                         "something timeline"
                         "footer footer";
                       }
-                      
+
 header{
   grid-area: header;
   font-size: 30px;
@@ -119,7 +119,7 @@ header{
   height: 100%;
   width: 100%;
   max-width: 140vh;
-  
+
 }
 
 .footer{
@@ -152,9 +152,14 @@ button{
   box-shadow: 0 1px 0px 1px #073b4cbb;
 }
 
-button:hover {
+button:hover:enabled {
   background-position: right center;
   font-size: 16px;
   box-shadow: 0 1px 0px 1px #073b4c;
 }
+
+button:disabled {
+  background-image: linear-gradient(to right, #9e9e9e, #303031);
+}
+
 

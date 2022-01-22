@@ -71,11 +71,10 @@ export default () => {
             <FileUploader id="uploader" onSuccess={onSuccess} visibility={uploderVisibility} />
             <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={viseoVisibility} />
             <div />
-            <ApplyFilters handleFilters={applyFilters} />
+            <ApplyFilters handleFilters={applyFilters} disableButton={uploadedVideo == null} />
             <div />
             <button disabled={!filtered} onClick={downloadVideo}>Download</button>
-            <button onClick={loadNewVideo}>Upload new video</button>
-
+            <button disabled={uploadedVideo == null} onClick={loadNewVideo}>Upload new video</button>
         </div>
     )
 }
