@@ -25,8 +25,23 @@ class Tutorial extends Component {
       <main>
         <Modal show={this.state.show} handleClose={this.hideModal}>
           <p>
-            <h2>HOW TO PLAY</h2>
-            <p>fdjkghafhajfgjkfvb</p>
+            <h2>Tutorial</h2>
+            <p>
+              <p>
+                Click the "UPLOAD"-Button to upload a video.<br />
+                If you want to upload a different video, click the "UPLOAD NEW VIDEO"-Button.
+              </p>
+              <p>
+                Choose a video-filter from the gallery on the left and simply click-and-drag it
+                into the filter-timeline. <br />
+                There you can adjust its size and position. Feel free to add as many filters as you like.<br />
+                You can see the effects of your added filters by clicking the Play-Button in the video player.<br />
+                If you're happy with the result, click the "DOWNLOAD"-Button to download your new masterpiece.
+              </p>
+              <p>
+                If something doesn't sound right, try applying some audio filter by checking the boxes.
+              </p>
+            </p>
           </p>
         </Modal>
         <button className="tutorialbtn" type="button" onClick={this.showModal}>
@@ -44,7 +59,7 @@ const Modal = ({ handleClose, show, children }) => {
     <div className={showHideClassName}>
       <section className='modal-main'>
         {children}
-        <button className= "tutorialclsbtn"
+        <button className="tutorialclsbtn"
           onClick={handleClose}
         >
           Close

@@ -10,6 +10,7 @@
 .modal-main {
   position:fixed;
   overflow: auto;
+  display: block;
   background-image: linear-gradient(#118ab2, #0c5972);
   width: 80%;
   height: auto;
@@ -20,6 +21,8 @@
   border: 1px solid;
   border-color: #073b4c;
   border-radius: 25px;
+  font-size: 20px;
+  text-align: center;
   color: white;
   box-shadow: 0 8px 32px 0 rgba(85, 68, 14, 0.37);
   animation-name: animate;
@@ -62,6 +65,6 @@
 }
 
 .tutorialclsbtn:hover{
-  font-size: 75%;
+  font-size: 105%;
   box-shadow: 0 1px 0px 1px #ef476f;
 }
