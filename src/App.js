@@ -6,7 +6,7 @@ import { DndProvider } from "react-dnd"; //need to wrap highest order component
 import { HTML5Backend } from "react-dnd-html5-backend";
 import DragDrop from './components/DragDrop';
 import Timeline from './components/Timeline';
-import Tutorial from './components/Tutorial';
+import AudioFilter from './components/AudioFilter';
 
 function App() {
   return (
@@ -23,7 +23,8 @@ function App() {
 
           <VideoPlayer />
           <DragDrop />
-          <Timeline/>
+          <Timeline />
+          <AudioFilter />
           <footer className='footer'>
             <ul>
               <p>Ekaterina Krysenkova</p>
