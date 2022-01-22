@@ -11,15 +11,12 @@ import AudioFilter from './components/AudioFilter';
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-     
-     
-      <div className="App">
-
         <body>
           <header>
             <h1>Multimedia AVT</h1>
-          </header>
           <Tutorial/>
+
+          </header>
 
           <VideoPlayer />
           <DragDrop />
@@ -44,7 +41,6 @@ function App() {
             </ul>
           </footer>
         </body>
-      </div>
     </DndProvider >
   )
 }
