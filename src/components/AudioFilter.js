@@ -1,47 +1,58 @@
 import useAudioFilter from "../hooks/useAudioFilter";
+import "../style/AudioFilter.css";
+import "../style/App.css";
+
+
 
 export default () => {
 	const {
-        setLowpass,
-        setBandpass,
-        setHighpass,
-        setLowshelf,
-        setHighshelf,
-        setPeaking,
-        setNotch,
+		setLowpass,
+		setBandpass,
+		setHighpass,
+		setLowshelf,
+		setHighshelf,
+		setPeaking,
+		setNotch,
 	} = useAudioFilter();
 
 	return (
 		<form>
-			<input type="checkbox" id="lowpass" name="lowpass" value="lowpass" onClick={(e) => {
+			<label for="lowpass" class="container"> lowpass
+				<input type="checkbox" id="lowpass" name="lowpass" value="lowpass" onClick={(e) => {
 					setLowpass(e.target.checked);
 				}}
-			/>
-			<label for="lowpass"> lowpass</label>
-			<input type="checkbox" id="bandpass" name="bandpass" value="bandpass" onClick={(e) => {
+				/>
+			</label>
+			<label for="bandpass" class="container"> bandpass
+				<input type="checkbox" id="bandpass" name="bandpass" value="bandpass" onClick={(e) => {
 					setBandpass(e.target.checked);
 				}} />
-			<label for="bandpass"> bandpass</label>
-			<input type="checkbox" id="highpass" name="highpass" value="highpass" onClick={(e) => {
+			</label>
+			<label for="highpass" class="container"> highpass
+				<input type="checkbox" id="highpass" name="highpass" value="highpass" onClick={(e) => {
 					setHighpass(e.target.checked);
 				}} />
-			<label for="highpass"> highpass </label>
-			<input type="checkbox" id="lowshelf" name="lowshelf" value="lowshelf" onClick={(e) => {
+			</label>
+			<label for="lowshelf" class="container"> lowshelf
+				<input type="checkbox" id="lowshelf" name="lowshelf" value="lowshelf" onClick={(e) => {
 					setLowshelf(e.target.checked);
 				}} />
-			<label for="lowshelf"> lowshelf </label>
+			</label>
+			<label for="highshelf" class="container"> highshelf
 			<input type="checkbox" id="highshelf" name="highshelf" value="highshelf" onClick={(e) => {
-					setHighshelf(e.target.checked);
-				}}/>
-			<label for="highshelf"> highshelf </label>
+				setHighshelf(e.target.checked);
+			}} />
+			 </label>
+			 <label for="peaking" class="container"> peaking 
 			<input type="checkbox" id="peaking" name="peaking" value="peaking" onClick={(e) => {
-					setPeaking(e.target.checked);
-				}} />
-			<label for="peaking"> peaking </label>
+				setPeaking(e.target.checked);
+			}} />
+			</label>
+			<label for="notch" class="container"> notch
 			<input type="checkbox" id="notch" name="notch" value="notch" onClick={(e) => {
-					setNotch(e.target.checked);
-				}} />
-			<label for="notch"> notch </label>
+				setNotch(e.target.checked);
+			}} />
+			 </label>
 		</form>
 	);
 };
