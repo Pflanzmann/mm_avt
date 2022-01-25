@@ -49,8 +49,8 @@
   border: 2px dotted;
   border-color: #ffd166;
   background-image: linear-gradient(to right, #ef476f, #ffd166);
-  height: 6vh;
-  width: 3vw;
+  max-height: 6vh;
+  max-width: 3vw;
 }
 
 .tutorialbtn:hover{
