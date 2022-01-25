@@ -7,6 +7,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import DragDrop from './components/DragDrop';
 import Timeline from './components/Timeline';
 import AudioFilter from './components/AudioFilter';
+import Tutorial from './components/Tutorial';
 
 function App() {
   return (
