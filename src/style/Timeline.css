@@ -6,6 +6,7 @@
     border-radius: 10px;
     background-color: #e9b336;
     box-shadow: 0 8px 32px 0 rgba(85, 68, 14, 0.37);
+    overflow-x: scroll;
 }
 
 .filterLine {
@@ -51,15 +52,6 @@
     margin-left: 1vw;
 }
 
-.scale {
-    display: flex;
-    table-layout: fixed;
-    height: 4vh;
-    width: 100%;
-    margin: auto;
-    background: white;
-}
-
 .filterBox {
     border-radius: 4px !important;
     position: absolute;
@@ -73,4 +65,18 @@
 .filterBox:hover{
     border: 2px solid;
     border-color: #118ab2;
+}
+
+.scale {
+    display: block;
+    height: 4vh;
+    background: white;
+}
+
+.scalePrimaryLine {
+    display: inline;
+    width: 1dp;
+    height: 50%;
+    border: 1px solid;
+    border-color: black;
 }

@@ -6,6 +6,7 @@ import { useDrop } from 'react-dnd';
 
 import * as Constants from "../constants/FilterImageList.js";
 import * as Colors from "../constants/FilterBoxColors.js";
+import { checkBoxBooleans } from "../constants/checkBoxBooleans";
 
 export default () => {
     const {
@@ -13,6 +14,7 @@ export default () => {
         setFilterState,
         draggingState,
         setDraggingState,
+        scaleState,
         setFilterBoxPosition,
         dropNewFilter,
         deleteFilter,
@@ -31,6 +33,11 @@ export default () => {
     const addFilterToDropArea = (id, positionX) => {
         dropNewFilter(id, positionX)
     };
+
+    const temp = [];
+    for (let index = 0; index < scaleState.duration; index += 1) {
+        temp.push({ a: 0 })
+    }
 
     return (
         <div className="timeline" id="timeline" ref={drop}
@@ -64,10 +71,16 @@ export default () => {
             {
                 <div className="filterLine">
                     <div className="filterTitleBox">
+
                     </div>
                     <div className="scale">
-                        {   
-                            
+                        {
+                            temp.map((e, index) => {
+                                return <div className="scalePrimaryLine" style={{
+                                    marginLeft: 50,
+                                }}>
+                                </div>
+                            })
                         }
                     </div>
                 </div>

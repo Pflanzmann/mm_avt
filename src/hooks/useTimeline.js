@@ -21,6 +21,10 @@ const useTimeline = () => {
         draggingFilterBarIndex: -1,
         draggingFilterIndex: -1,
     })
+    
+    const [scaleState, setScaleState] = useState({
+        duration: 60
+    })
 
     useEffect(() => {
         if (oldDraggingState.draggingFilterIndex > -1 && draggingState.draggingFilterIndex == -1) {
@@ -155,6 +159,7 @@ const useTimeline = () => {
         setFilterState,
         draggingState,
         setDraggingState,
+        scaleState,
         setFilterBoxPosition,
         dropNewFilter,
         deleteFilter,
