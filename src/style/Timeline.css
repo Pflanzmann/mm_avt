@@ -12,23 +12,20 @@
 .filterLine {
     display: flex;
     margin: auto;
+    min-width: 100%;
 }
 
 .filterScaleLine {
     display: flex;
     margin: auto;
     margin-left: 3vw;
-
 }
 
 .scale {
-    display: block;
+    display: flex;
     height: 4vh;
     background: white;
-}
-
-.filterScaleLinePicture {
-  
+    min-width: 100%;
 }
 
 .filterTitleBox {
@@ -76,7 +73,6 @@
     background-color: #073b4c;
     height: 100%;
     border: 1px solid;
-    transition: 0.1s;
 }
 
 .filterBox:hover{
@@ -84,11 +80,26 @@
     border-color: #118ab2;
 }
 
-
 .scalePrimaryLine {
     display: inline;
-    width: 1dp;
-    height: 50%;
-    border: 1px solid;
-    border-color: black;
+    width: 4px;
+    height: 75%;
+    margin-right: 30px;
+    background-color: #073b4c;
+}
+
+.scaleMinorLine {
+    display: inline;
+    width: 4px;
+    margin-right: 30px;
+    height: 40%;
+    background-color: #118ab2;
+}
+
+.scaleSecondaryLine {
+    display: inline;
+    width: 4px;
+    margin-right: 30px;
+    height: 60%;
+    background-color: #118ab2;
 }

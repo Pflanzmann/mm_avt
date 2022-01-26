@@ -1,12 +1,11 @@
+import React from 'react';
+import { useDrop } from 'react-dnd';
+import * as Colors from "../constants/FilterBoxColors.js";
+import * as Constants from "../constants/FilterImageList.js";
+import useTimeline from '../hooks/useTimeline';
 import "../style/Timeline.css";
 
-import React from 'react';
-import useTimeline from '../hooks/useTimeline';
-import { useDrop } from 'react-dnd';
 
-import * as Constants from "../constants/FilterImageList.js";
-import * as Colors from "../constants/FilterBoxColors.js";
-import { checkBoxBooleans } from "../constants/checkBoxBooleans";
 
 export default () => {
     const {
@@ -36,7 +35,15 @@ export default () => {
 
     const temp = [];
     for (let index = 0; index < scaleState.duration; index += 1) {
-        temp.push({ a: 0 })
+        if (index % 10 === 0) {
+            temp.push(<dev className="scalePrimaryLine"></dev>)
+        } else {
+            if (index % 5 === 0) {
+                temp.push(<div className="scaleSecondaryLine" ></div>)
+            } else {
+                temp.push(<div className="scaleMinorLine" ></div>)
+            }
+        };
     }
 
     return (
@@ -70,22 +77,19 @@ export default () => {
         >
             {
                 <div className="filterScaleLine">
-                    
+
                     <div className="scale">
                         {
-                            temp.map((e, index) => (
-                                 <div className="scalePrimaryLine" style={{
-                                    marginLeft: 50,
-                                }}>
-                                </div>
-                            ))
+                            temp
                         }
                     </div>
                 </div>
             }
             {
                 filterState.filterBars.map((filterBar, barIndex) => (
-                    <div className="filterLine">
+                    <div className="filterLine" style={{
+                        width: scaleState.duration * 33,
+                    }}>
                         <div className="filterTitleBox">
                             <img className="timelineTitlePicture" src={Constants.FilterImageList[filterBar.filterId].url} />
                         </div>

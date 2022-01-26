@@ -23,7 +23,7 @@ const useTimeline = () => {
     })
     
     const [scaleState, setScaleState] = useState({
-        duration: 60
+        duration: 30
     })
 
     useEffect(() => {
