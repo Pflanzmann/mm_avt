@@ -16,24 +16,24 @@ export default () => {
 	} = useAudioFilter();
 
 	return (
-		<form>
-			<label for="lowpass" class="container"> lowpass
+		<form className="audioFilters">
+			<label for="lowpass" class="container"> lowpass  &nbsp;&nbsp;
 				<input type="checkbox" id="lowpass" name="lowpass" value="lowpass" onClick={(e) => {
 					setLowpass(e.target.checked);
 				}}
 				/>
 			</label>
-			<label for="bandpass" class="container"> bandpass
+			<label for="bandpass" class="container"> bandpass&nbsp;
 				<input type="checkbox" id="bandpass" name="bandpass" value="bandpass" onClick={(e) => {
 					setBandpass(e.target.checked);
 				}} />
 			</label>
-			<label for="highpass" class="container"> highpass
+			<label for="highpass" class="container"> highpass &nbsp;
 				<input type="checkbox" id="highpass" name="highpass" value="highpass" onClick={(e) => {
 					setHighpass(e.target.checked);
 				}} />
 			</label>
-			<label for="lowshelf" class="container"> lowshelf
+			<label for="lowshelf" class="container"> lowshelf&nbsp;
 				<input type="checkbox" id="lowshelf" name="lowshelf" value="lowshelf" onClick={(e) => {
 					setLowshelf(e.target.checked);
 				}} />
@@ -43,12 +43,12 @@ export default () => {
 				setHighshelf(e.target.checked);
 			}} />
 			 </label>
-			 <label for="peaking" class="container"> peaking 
+			 <label for="peaking" class="container"> peaking &nbsp; &nbsp;
 			<input type="checkbox" id="peaking" name="peaking" value="peaking" onClick={(e) => {
 				setPeaking(e.target.checked);
 			}} />
 			</label>
-			<label for="notch" class="container"> notch
+			<label for="notch" class="container"> notch&nbsp; &nbsp; &nbsp; &nbsp;
 			<input type="checkbox" id="notch" name="notch" value="notch" onClick={(e) => {
 				setNotch(e.target.checked);
 			}} />
