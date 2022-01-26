@@ -36,10 +36,14 @@ class Tutorial extends Component {
                 into the filter-timeline. <br />
                 There you can adjust its size and position. Feel free to add as many filters as you like.<br />
                 You can see the effects of your added filters by clicking the Play-Button in the video player.<br />
-                If you're happy with the result, click the "DOWNLOAD"-Button to download your new masterpiece.
+                If you're happy with the result, click the "DOWNLOAD"-Button to download your new masterpiece. <br />
+                Changed your mind? No problem! Simply double-click the filter you don't like and we'll pretend, it never happened.
               </p>
               <p>
                 If something doesn't sound right, try applying some audio filter by checking the boxes.
+              </p>
+              <p>
+                You can always come back to this tutorial by clicking the ? at the top of the page.
               </p>
             </p>
           </p>
