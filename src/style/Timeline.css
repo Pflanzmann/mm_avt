@@ -67,7 +67,7 @@
     background-color: #073b4c;
     height: 100%;
     border: 1px solid;
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 .filterBox:hover{
