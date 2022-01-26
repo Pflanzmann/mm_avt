@@ -131,7 +131,7 @@ npx nodemon server.js
 npm start
 ```
 
-Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Google Chrome](https://www.google.de/chrome/)) unter ```localhost:3000 ``` aufgerufen werden.
+Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.mozilla.org/en-US/firefox/new/)) unter ```localhost:3000 ``` aufgerufen werden.
 
 <br> 
 
@@ -141,25 +141,19 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Google Chrome](https:
 * [Filter hinzufügen](#filter-hinzufuegen)
 * [Filter editieren](#filter-editieren)
 * [Filter löschen](#filter-loeschen)
-
-
+* [Tutorial](#tutorial)
 
 **Obacht!** Durch Neuladen der Seite werden alle Änderungen an den Filtern, sowie das hochgeladene Video zurückgesetzt. 
 
 * #### **Video hochladen**
 
-    Über den Button "Upload" oder Klicken in das Videoplayer-Fenster kann ein Video hochgeladen werden. (Wir empfehlen Videodateien unter 15MB, da größere Dateien zu einer längeren Wartezeit führen können).
+    Über den Button "Durchsuchen" oder Draggen-&-Droppen der Datei in das Videoplayer-Fenster kann ein Video hochgeladen werden. (Wir empfehlen Videodateien unter 10MB, da größere Dateien zu einer längeren Wartezeit führen können).
 
-    Wenn bereits ein Video hochgeladen wurde, kann über den Button "Upload New Video" ein neues Video hochgeladen werden.
-
---- **//TODO: Bild** ---
+    Wenn bereits ein Video hochgeladen wurde, kann über den Button <img src="http://drive.google.com/uc?export=view&id=1nVBTjxanpP5Ze1GL0CsONpmkJsoaXZTS" alt="Upload New Video" height="20px"> ein neues Video hochgeladen werden.
 
 * #### **Video runterladen** 
 
-    Wenn alle Filter an der richtigen Stelle sind, kann das Video über den Button "Download" heruntergeladen werden. Nach erfolgreichem Download ist das veränderte Video im üblichen Download-Ordner zu finden.
-
---- **//TODO: Bild: DownloadButton** ---
-
+    Wenn alle Filter an der richtigen Stelle sind, kann das Video über den Button "Download" <img src="http://drive.google.com/uc?export=view&id=1kQo0JPfL2XGfhg-cAFG7ENmuT_PCJWYu" alt="Download" height="20px">  heruntergeladen werden. Nach erfolgreichem Download ist das veränderte Video im üblichen Download-Ordner zu finden.
 
 * #### **Filter hinzufuegen**
     * **Video**
@@ -174,7 +168,7 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Google Chrome](https:
 
         Durch Anklicken der verschiedenen Audiofilter-Checkboxes werden diese auf das Audio des Videos angewandt. Werden verschiedene Filter ausgewählt, kombinieren sich deren Effekte. Beim Abspielen des Videos im Browser sind die Audioeffekte direkt hörbar.
 
-        ---**//TODO: Bild**---
+        ---**//TODO: gif**---
 
 * #### **Filter editieren**
 
@@ -190,10 +184,14 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Google Chrome](https:
 
     ---**//TODO**---
 
-* #### **Filter loeschen**
 Durch Doppelklicken auf einen Filterbalken wird dieser gelöscht und der Filtereffekt auch nicht mehr an der Stelle auf das Video angewendet.
 
     ---**//TODO: gif löschen**---
+
+* #### **Tutorial**
+
+Über den Fragezeichen-Button <img src="http://drive.google.com/uc?export=view&id=1ppaRo2X12LgWvsjHvBJ8kf7bOiP-dLJV" alt="Download" width="20px">  neben der Überschrift kann jederzeit das Tutorial aufgerufen werden, welches die Funktionsweise der App noch einmal erklärt. Geschlossen wird das Tutorial wieder über den Close-Button.
+
 ---
 <br>
 
