@@ -69,18 +69,16 @@ export default () => {
             }}
         >
             {
-                <div className="filterLine">
-                    <div className="filterTitleBox">
-
-                    </div>
+                <div className="filterScaleLine">
+                    
                     <div className="scale">
                         {
-                            temp.map((e, index) => {
-                                return <div className="scalePrimaryLine" style={{
+                            temp.map((e, index) => (
+                                 <div className="scalePrimaryLine" style={{
                                     marginLeft: 50,
                                 }}>
                                 </div>
-                            })
+                            ))
                         }
                     </div>
                 </div>

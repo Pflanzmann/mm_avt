@@ -14,10 +14,27 @@
     margin: auto;
 }
 
-.filterTitleBox {
+.filterScaleLine {
+    display: flex;
+    margin: auto;
+    margin-left: 3vw;
+
+}
+
+.scale {
     display: block;
     height: 4vh;
-    width: 4vh;
+    background: white;
+}
+
+.filterScaleLinePicture {
+  
+}
+
+.filterTitleBox {
+    display: block;
+    height: 2vw;
+    width: 2vw;
     margin: auto;
 }
 
@@ -67,11 +84,6 @@
     border-color: #118ab2;
 }
 
-.scale {
-    display: block;
-    height: 4vh;
-    background: white;
-}
 
 .scalePrimaryLine {
     display: inline;
