@@ -78,7 +78,7 @@ export default () => {
             {
                 <div className="filterScaleLine">
 
-                    <div className="scale">
+                    <div className="scale" id='scale'>
                         {
                             temp
                         }

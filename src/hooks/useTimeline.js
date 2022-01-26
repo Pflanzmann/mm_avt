@@ -21,7 +21,7 @@ const useTimeline = () => {
         draggingFilterBarIndex: -1,
         draggingFilterIndex: -1,
     })
-    
+
     const [scaleState, setScaleState] = useState({
         duration: 30
     })
@@ -113,7 +113,7 @@ const useTimeline = () => {
 
     const dropNewFilter = (filterId, globalPosition) => {
         var addedFilter = false;
-        var relativePosition = globalPosition - document.getElementById("filterBar").getBoundingClientRect().left;
+        var relativePosition = globalPosition - document.getElementById("scale").getBoundingClientRect().left;
 
         filterState.filterBars.forEach(filterBar => {
             if (filterBar.filterId == filterId) {
@@ -144,6 +144,11 @@ const useTimeline = () => {
 
     const deleteFilter = (barIndex, filterIndex) => {
         filterState.filterBars[barIndex].filters.splice(filterIndex, 1);
+
+
+        if (filterState.filterBars[barIndex].filters.length === 0) {
+            filterState.filterBars.splice(barIndex, 1);
+        }
 
         updateFilterBars();
     }

@@ -18,6 +18,10 @@ export function convertFilters() {
 
             startTime = Math.round(relativeVideoStart);
             endTime = Math.round(relativeVideoEnd);
+            endTime = Math.min([relativeVideoEnd, videoDuration])
+
+            console.log("startTime: " + startTime)
+            console.log("endTime: " + relativeVideoEnd)
 
             switch (filter.filterId) {
                 case 0:
