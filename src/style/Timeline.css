@@ -11,21 +11,6 @@
 
 .filterLine {
     display: flex;
-    margin: auto;
-    min-width: 100%;
-}
-
-.filterScaleLine {
-    display: flex;
-    margin: auto;
-    margin-left: 3vw;
-}
-
-.scale {
-    display: flex;
-    height: 4vh;
-    background: white;
-    min-width: 100%;
 }
 
 .filterTitleBox {
@@ -80,26 +65,41 @@
     border-color: #118ab2;
 }
 
+.filterScaleLine {
+    display: flex;
+    justify-content: stretch;
+
+    margin: auto;
+    margin-left: 3vw;
+}
+
+.scale {
+    display: flex;
+    height: 4vh;
+    background: white;
+    min-width: auto;
+}
+
 .scalePrimaryLine {
-    display: inline;
-    width: 4px;
+    display:  inline-flex;
+    width: 0.2vw;
     height: 75%;
-    margin-right: 30px;
+    margin-right: 2vw;
     background-color: #073b4c;
 }
 
 .scaleMinorLine {
-    display: inline;
-    width: 4px;
-    margin-right: 30px;
+    display:  inline-flex;
+    width: 0.2vw;
+    margin-right: 2vw;
     height: 40%;
     background-color: #118ab2;
 }
 
 .scaleSecondaryLine {
-    display: inline;
-    width: 4px;
-    margin-right: 30px;
+    display: inline-flex;
+    width: 0.2vw;
+    margin-right: 2vw;
     height: 60%;
     background-color: #118ab2;
 }

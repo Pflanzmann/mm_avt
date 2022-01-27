@@ -50,7 +50,7 @@ export default () => {
         temp.push(<dev className="scalePrimaryLine" id="lastScaleLine"></dev>)
     } else {
         if (temp.length % 5 === 0) {
-            temp.push(<div className="scaleSecondaryLine" id="lastScaleLine"></div>)
+            temp.push(<div className="scaleSecondaryLine" id="lastScaleLine" ></div>)
         } else {
             temp.push(<div className="scaleMinorLine" id="lastScaleLine"></div>)
         }
@@ -87,7 +87,6 @@ export default () => {
         >
             {
                 <div className="filterScaleLine">
-
                     <div className="scale" id='scale'>
                         {
                             temp
@@ -98,12 +97,12 @@ export default () => {
             {
                 filterState.filterBars.map((filterBar, barIndex) => (
                     <div className="filterLine" style={{
-                        width: scaleState.duration * 33,
+                        width: temp.length * 2.2 + + 3 + "vw",
                     }}>
                         <div className="filterTitleBox">
                             <img className="timelineTitlePicture" src={Constants.FilterImageList[filterBar.filterId].url} />
                         </div>
-                        <div className="filterBar" id="filterBar">
+                        <div className="filterBar" id="filterBar" >
                             {
                                 filterBar.filters.map((filter, filterIndex) => (
                                     <div className="filterBox" style={{
