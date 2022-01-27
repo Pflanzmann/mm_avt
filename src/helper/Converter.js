@@ -1,8 +1,8 @@
-import * as Constants from "../constants/FilterBars.js"
+import * as Constants from "../constants/FilterBars.js";
 
 export function convertFilters() {
     let request = []
-    const filterBarRight = document.getElementById("filterBar").getBoundingClientRect().right - document.getElementById("filterBar").getBoundingClientRect().left;
+    const filterBarRight = document.getElementById("lastScaleLine").getBoundingClientRect().right - document.getElementById("scale").getBoundingClientRect().left;
     const videoDuration = document.getElementById("videoSource").duration;
 
     Constants.filterBars.map(filterBar => {
@@ -12,16 +12,15 @@ export function convertFilters() {
 
             let startTimePercent = 100 / filterBarRight * startTime;
             let endTimePercent = 100 / filterBarRight * endTime;
-
+            
             let relativeVideoStart = videoDuration / 100 * startTimePercent;
             let relativeVideoEnd = videoDuration / 100 * endTimePercent;
+            relativeVideoEnd = Math.min(relativeVideoEnd, videoDuration)
 
             startTime = Math.round(relativeVideoStart);
             endTime = Math.round(relativeVideoEnd);
-            endTime = Math.min([relativeVideoEnd, videoDuration])
 
-            console.log("startTime: " + startTime)
-            console.log("endTime: " + relativeVideoEnd)
+            console.log("filterId: " + filter.filterId + "startTime: " + startTime + " | endTime: " + endTime)
 
             switch (filter.filterId) {
                 case 0:
