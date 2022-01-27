@@ -46,15 +46,17 @@ export default () => {
         };
     }
 
-    if (temp.length % 10 === 0) {
-        temp.push(<dev className="scalePrimaryLine" id="lastScaleLine"></dev>)
-    } else {
-        if (temp.length % 5 === 0) {
-            temp.push(<div className="scaleSecondaryLine" id="lastScaleLine" ></div>)
+    if (temp.length > 0) {
+        if (temp.length % 10 === 0) {
+            temp.push(<dev className="scalePrimaryLine" id="lastScaleLine"></dev>)
         } else {
-            temp.push(<div className="scaleMinorLine" id="lastScaleLine"></div>)
-        }
-    };
+            if (temp.length % 5 === 0) {
+                temp.push(<div className="scaleSecondaryLine" id="lastScaleLine" ></div>)
+            } else {
+                temp.push(<div className="scaleMinorLine" id="lastScaleLine"></div>)
+            }
+        };
+    }
 
     return (
         <div className="timeline" id="timeline" ref={drop}

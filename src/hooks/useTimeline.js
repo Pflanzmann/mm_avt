@@ -23,8 +23,26 @@ const useTimeline = () => {
     })
 
     const [scaleState, setScaleState] = useState({
-        duration: 160
+        duration: 0
     })
+
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            const video = document.getElementById("videoSource");
+            if (video != null) {
+                const videoDuration = document.getElementById("videoSource").duration;
+                if (scaleState.duration != videoDuration) {
+                    setScaleState({
+                        duration: videoDuration
+                    })
+                }
+            }
+        }, 500)
+
+        return (function cleanup() {
+            clearInterval(timerId)
+        })
+    }, [])
 
     useEffect(() => {
         if (oldDraggingState.draggingFilterIndex > -1 && draggingState.draggingFilterIndex == -1) {
