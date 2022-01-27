@@ -26,6 +26,10 @@ const useTimeline = () => {
         duration: 0
     })
 
+    const [progressIndicator, setProgressIndicator] = useState({
+        progress: 0,
+    })
+
     useEffect(() => {
         const timerId = setInterval(() => {
             const video = document.getElementById("videoSource");
@@ -33,11 +37,24 @@ const useTimeline = () => {
                 const videoDuration = document.getElementById("videoSource").duration;
                 if (scaleState.duration != videoDuration) {
                     setScaleState({
-                        duration: videoDuration
+                        duration: Math.round(videoDuration)
                     })
                 }
+
+                if (videoDuration > 0) {
+                    const lastScale = document.getElementById("lastScaleLine");
+                    if (lastScale != null) {
+                        const relativeProgress = 100 / Math.round(videoDuration) * video.currentTime;
+                        const scaleLenght = lastScale.getBoundingClientRect().right - document.getElementById("scale").getBoundingClientRect().left
+                        const progressInPx = scaleLenght / 100 * relativeProgress
+
+                        setProgressIndicator({
+                            progress: progressInPx,
+                        })
+                    }
+                }
             }
-        }, 500)
+        }, 100)
 
         return (function cleanup() {
             clearInterval(timerId)
@@ -183,6 +200,7 @@ const useTimeline = () => {
         draggingState,
         setDraggingState,
         scaleState,
+        progressIndicator,
         setFilterBoxPosition,
         dropNewFilter,
         deleteFilter,

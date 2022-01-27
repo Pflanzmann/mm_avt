@@ -103,3 +103,11 @@
     height: 60%;
     background-color: #118ab2;
 }
+
+.scaleProgressIndicator {
+    position: absolute;
+
+    width: 0.2vw;
+    height: 4vh;
+    background-color: red;
+}

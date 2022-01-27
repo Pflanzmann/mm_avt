@@ -14,6 +14,7 @@ export default () => {
         draggingState,
         setDraggingState,
         scaleState,
+        progressIndicator,
         setFilterBoxPosition,
         dropNewFilter,
         deleteFilter,
@@ -34,7 +35,7 @@ export default () => {
     };
 
     const temp = [];
-    for (let index = 0; index < scaleState.duration; index += 1) {
+    for (let index = 0; index < scaleState.duration; index++) {
         if (index % 10 === 0) {
             temp.push(<dev className="scalePrimaryLine"></dev>)
         } else {
@@ -46,14 +47,21 @@ export default () => {
         };
     }
 
-    if (temp.length > 0) {
-        if (temp.length % 10 === 0) {
-            temp.push(<dev className="scalePrimaryLine" id="lastScaleLine"></dev>)
+    if (scaleState.duration > 0) {
+        console.log(scaleState.duration)
+        if (scaleState.duration % 10 === 0) {
+            temp[scaleState.duration] = (<dev className="scalePrimaryLine" id="lastScaleLine" style={{
+                marginRight: "0vw",
+            }}></dev>)
         } else {
-            if (temp.length % 5 === 0) {
-                temp.push(<div className="scaleSecondaryLine" id="lastScaleLine" ></div>)
+            if (scaleState.duration % 5 === 0) {
+                temp[scaleState.duration] = (<div className="scaleSecondaryLine" id="lastScaleLine" style={{
+                    marginRight: "0vw",
+                }}></div>)
             } else {
-                temp.push(<div className="scaleMinorLine" id="lastScaleLine"></div>)
+                temp[scaleState.duration] = (<div className="scaleMinorLine" id="lastScaleLine" style={{
+                    marginRight: "0vw",
+                }}></div>)
             }
         };
     }
@@ -92,6 +100,11 @@ export default () => {
                     <div className="scale" id='scale'>
                         {
                             temp
+                        }
+                        {
+                            <div className='scaleProgressIndicator' style={{
+                                marginLeft: progressIndicator.progress + "px",
+                            }}></div>
                         }
                     </div>
                 </div>
