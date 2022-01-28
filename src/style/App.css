@@ -10,9 +10,9 @@ height: 80vh;
   -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
   transition: outline-offset .15s ease-in-out, background-color .15s linear;
   padding: 190px 10px 85px 25%;
-  text-align: center !important;
+  text-align: center;
   margin: 0;
-  width: 100% !important;
+  width: 100%;
 }
 
 .files input:focus{
@@ -78,12 +78,9 @@ body{
       -moz-user-select: none; 
        -ms-user-select: none; 
            user-select: none; 
-
-
   background-image: linear-gradient(#118ab2, #073b4c);
   height: 100%;
   display: grid;
-
   grid-template-areas: "header header"
                        "filterImages videoDiv"
                         "audioFilter timeline"
@@ -115,7 +112,7 @@ header{
 
 .container{
   grid-area: audioFilter;
-  min-width: 18vw;
+  min-width: 19vw;
   display: block;
   position: relative;
   height: 100%;
