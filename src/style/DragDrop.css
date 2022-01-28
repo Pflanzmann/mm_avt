@@ -30,7 +30,6 @@
 /* Buttons */
 ::-webkit-scrollbar-button:single-button {
     background-color: rgb(64, 64, 64);
-   
     display: block;
     background-size: 10px;
     background-repeat: no-repeat;

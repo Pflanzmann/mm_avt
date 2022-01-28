@@ -22,7 +22,7 @@ function FilterImage({ id, url }) {
     return <img
         ref={drag}
         src={url}
-        style={{ border: isDragging ? "10px solid pink" : "0px" }} />;
+        style={{ border: isDragging ? "5px dotted #ef476f" : "0px" }} />;
 }
 
 export default FilterImage;
