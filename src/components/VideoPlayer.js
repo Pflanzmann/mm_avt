@@ -4,24 +4,6 @@ import { Video } from "../helper/Video";
 import axios from "axios";
 import ApplyFilters from "../helper/ApplyFilters";
 import { useBeforeunload } from 'react-beforeunload';
-import * as ConstantBooleans from "../constants/checkBoxBooleans.js"
-
-let videoElement;
-const ctx = new AudioContext();
-const lowpass = ctx.createBiquadFilter();
-const bandpass = ctx.createBiquadFilter();
-const highpass = ctx.createBiquadFilter();
-const lowshelf = ctx.createBiquadFilter();
-const highshelf = ctx.createBiquadFilter();
-const peaking = ctx.createBiquadFilter();
-const notch = ctx.createBiquadFilter();
-lowpass.type = 'lowpass';
-bandpass.type = 'bandpass';
-highpass.type = 'highpass';
-lowshelf.type = 'lowshelf';
-highshelf.type = 'highshelf';
-peaking.type = 'peaking';
-notch.type = 'notch';
 
 export default () => {
     const [uploderVisibility, setUploaderVisibility] = useState("hidden")
@@ -58,48 +40,6 @@ export default () => {
         setUploadedVideo(uploadedVideo)
         setUploaderVisibility("hidden")
         setVideoVisibility("visible")
-        setAudioFilter();
-    }
-
-    /**
-     * Controls audio filters
-     */
-    function setAudioFilter(){
-
-        //This works, but only if the browser was refreshed due to changes in js
-        //TODO: react on checkbox changes without uploading a new video
-        //TODO: make it work after browsertab refresh - does work on firefox...
-
-        videoElement = document.getElementById("videoSource");
-        const mediaElement = ctx.createMediaElementSource(videoElement);
-        mediaElement.connect(lowpass);
-
-        lowpass.frequency.value = ConstantBooleans.checkBoxBooleans.lowpassChecked ? 4000 : 24000;
-        lowpass.connect(bandpass);
-
-        bandpass.frequency.value = 12000;
-        bandpass.Q.value = ConstantBooleans.checkBoxBooleans.bandpassChecked ? 3000 : 0;
-        bandpass.connect(highpass);
-
-        highpass.frequency.value = ConstantBooleans.checkBoxBooleans.highpassChecked ? 18000 : 0;
-        highpass.connect(lowshelf);
-
-        lowshelf.gain.value = 20;
-        lowshelf.frequency.value = ConstantBooleans.checkBoxBooleans.lowshelfChecked ? 6000 : 0;
-        lowshelf.connect(highshelf);
-
-        highshelf.gain.value = 20;
-        highshelf.frequency.value = ConstantBooleans.checkBoxBooleans.highshelfChecked ? 18000 : 24000;
-        highshelf.connect(peaking);
-
-        peaking.gain.value = 20;
-        peaking.frequency.value = 12000;
-        peaking.Q.value = ConstantBooleans.checkBoxBooleans.peakingChecked ? 3000 : 0;
-        peaking.connect(notch);
-
-        notch.frequency.value = 12000;
-        notch.Q.value = ConstantBooleans.checkBoxBooleans.notchChecked ? 3000 : 24000;
-        notch.connect(ctx.destination);
     }
 
     /**
