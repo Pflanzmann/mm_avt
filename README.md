@@ -9,7 +9,8 @@ _Hochschule für Technik und Wirtschaft Berlin, WiSe21/22_
 ## Inhaltsverzeichnis
 * [Projektbeschreibung](#projektbeschreibung)
 * [Anleitung](#anleitung)
-* [Verwendete Frameworks](#verwendete-frameworks)
+* [Aufbau & Technische Umsetzung](#aufbau-und-technische-umsetzung)
+* [Verwendete Libraries](#verwendete-libraries)
 * [Fazit](#fazit)
 * [Contributors](#contributors)
 * [Links & Quellen](#quellen)
@@ -143,61 +144,94 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.
 * [Filter löschen](#filter-loeschen)
 * [Tutorial](#tutorial)
 
-**Obacht!** Durch Neuladen der Seite werden alle Änderungen an den Filtern, sowie das hochgeladene Video zurückgesetzt. 
+> **Obacht!** Durch Neuladen der Seite werden alle Änderungen an den Filtern, sowie das hochgeladene Video zurückgesetzt. 
 
 * #### **Video hochladen**
 
     Über den Button "Durchsuchen" oder Draggen-&-Droppen der Datei in das Videoplayer-Fenster kann ein Video hochgeladen werden. (Wir empfehlen Videodateien unter 10MB, da größere Dateien zu einer längeren Wartezeit führen können).
 
-    Wenn bereits ein Video hochgeladen wurde, kann über den Button <img src="http://drive.google.com/uc?export=view&id=1nVBTjxanpP5Ze1GL0CsONpmkJsoaXZTS" alt="Upload New Video" height="20px"> ein neues Video hochgeladen werden.
+    Wenn bereits ein Video hochgeladen wurde, kann über den Button <img src="http://drive.google.com/uc?export=view&id=1nVBTjxanpP5Ze1GL0CsONpmkJsoaXZTS" alt="Blau-grüner Button mit weißer Schrift: Upload New Video" height="20px"> ein neues Video hochgeladen werden.
 
 * #### **Video runterladen** 
 
-    Wenn alle Filter an der richtigen Stelle sind, kann das Video über den Button "Download" <img src="http://drive.google.com/uc?export=view&id=1kQo0JPfL2XGfhg-cAFG7ENmuT_PCJWYu" alt="Download" height="20px">  heruntergeladen werden. Nach erfolgreichem Download ist das veränderte Video im üblichen Download-Ordner zu finden.
+    Wenn alle Filter an der richtigen Stelle sind, kann das Video über den Button <img src="http://drive.google.com/uc?export=view&id=1kQo0JPfL2XGfhg-cAFG7ENmuT_PCJWYu" alt="Blau-grüner Button mit weißer Schrift: Download" height="20px">  heruntergeladen werden. Nach erfolgreichem Download ist das veränderte Video im üblichen Download-Ordner zu finden.
 
 * #### **Filter hinzufuegen**
     * **Video**
 
     Aus der scrollbaren Filtergalerie links neben dem Videoplayer kann aus einer Auswahl von sechs Videofiltern gewählt werden.<br>
     Diese können jeweils per drag-and-drop auf die Filter-Timeline gezogen werden und erscheinen dort als farbige Balken relativ zur Mausposition beim "droppen". Pro Filterart wird eine neue "Zeile" automatisch hinzugefügt. Die Art des Filters ist durch ein Icon am Anfang der Zeile zu sehen.<br>
-    Wird der Videoplayer gestartet, sind die Effekte der Filter auf das Video direkt zu sehen. Werden verschiedene Filter ausgewählt, kombinieren sich deren Effekte.
+    Nachdem die Filter "applied" wurden (siehe [Filter anwenden](#filter-anwenden) sind die Effekte der Filter auf das Video direkt im Videplayer zu sehen. Werden verschiedene Filter ausgewählt, kombinieren sich deren Effekte.
 
-       ---**//TODO: gif**---
+
+    <img src="http://drive.google.com/uc?export=view&id=1APfLOQEq2P2uywGPNC6UNBbWv_iZFiV5" alt="Der Mauscursor klickt auf das Bild des schwarz-weiß-Filters in der Filtergalerie und dragt es in die Timeline. Beim Loslassen erscheint ein pinker Balken in einer neuen Zeile in der Timeline. Am Anfang der Zeile ist das Bild des Filters. Dann wird das Bild des blurry-Filters zwei mal in die Timeline gezogen und es erscheinen in einer neuen Zeile nacheinander 2 gelbe Balken." height="200px">
+
+    <br>
 
     * **Audio**
 
-        Durch Anklicken der verschiedenen Audiofilter-Checkboxes werden diese auf das Audio des Videos angewandt. Werden verschiedene Filter ausgewählt, kombinieren sich deren Effekte. Beim Abspielen des Videos im Browser sind die Audioeffekte direkt hörbar.
+    Durch Anklicken der verschiedenen Audiofilter-Checkboxes unter den Videofiltern werden diese auf das Audio des Videos angewandt. Werden verschiedene Filter ausgewählt, kombinieren sich deren Effekte. Beim Abspielen des Videos im Browser sind die Audioeffekte direkt hörbar.
 
-        ---**//TODO: gif**---
+     <img src="http://drive.google.com/uc?export=view&id=1uqySuh5HSFf0qtw8xcqmFr8NJFQ_ZLbI" alt="In einer Liste stehen untereinander die Namen der Audiofilter. Neben jedem Namen ist eine leere Checkbox. Nacheinander werden verschiedene Checkboxen an- und ausgeklickt." height="200px">
+
+    <br>
 
 * #### **Filter editieren**
 
     Durch click-and-drag auf das rechte Ende eines Filterbalkens kann dessen Dauer verändert werden.
+    
+     <img src="http://drive.google.com/uc?export=view&id=1xklLMTG50gJXsOAPOGqNlAS525Jub9n8" alt="Ein pinker Filterbalken ist in der Timeline. Der Mauscursor zieht am rechten Ende des Balkens und macht ihn dadurch länger." height="200px">
 
-    ---**//TODO: gif Filterdauer verändern**---
+    <br>
 
     Die Position eines Filterbalken kann durch click-and-drag auf dem jeweiligen Filterbalken verändert werden.
+    
+     <img src="http://drive.google.com/uc?export=view&id=1tnNN_YBJYoa5cRuP-04O475pgSLDGjsJ" alt="Ein pinker Filterbalken ist in der Timeline. Der Mauscursor ist in der Mitte des Balkens und in Form eines Pfeiles mit vier Enden. Durch anklicken und draggen des Balkens wird dieser nach rechts und links verschoben." height="200px">
 
-    ---**//TODO: gif Position verändern**---
+    <br>
 
-* Filter anwenden -- kann vielleicht weg? 
+* #### **Filter anwenden**
+    Wenn die Filter an der gewünschten Position sind, werden sie durch klicken auf den Button <img src="http://drive.google.com/uc?export=view&id=1SxTLfGjwDreDKWMH3vTOVMeE67o7ss1r" alt="Blau-grüner Button mit weißer Schrift: Apply Filter" height="20px">  auf das hochgeladene Video angewandt
 
-    ---**//TODO**---
+* #### **Filter loeschen**
+    Durch Doppelklicken auf einen Filterbalken wird dieser gelöscht und der Filtereffekt auch nicht mehr an der Stelle auf das Video angewendet.
 
-Durch Doppelklicken auf einen Filterbalken wird dieser gelöscht und der Filtereffekt auch nicht mehr an der Stelle auf das Video angewendet.
+     <img src="http://drive.google.com/uc?export=view&id=1L55xrU1lf7E5AbSxrJedu2sONakJ6WSO" alt="Verschieden farbige Filterbalken sind in der Timeline angeordnet und werden nacheinander durch Doppelklicken gelöscht." height="200px">
 
-    ---**//TODO: gif löschen**---
+    <br>
 
 * #### **Tutorial**
 
-Über den Fragezeichen-Button <img src="http://drive.google.com/uc?export=view&id=1ppaRo2X12LgWvsjHvBJ8kf7bOiP-dLJV" alt="Download" width="20px">  neben der Überschrift kann jederzeit das Tutorial aufgerufen werden, welches die Funktionsweise der App noch einmal erklärt. Geschlossen wird das Tutorial wieder über den Close-Button.
+    Über den Fragezeichen-Button <img src="http://drive.google.com/uc?export=view&id=1ppaRo2X12LgWvsjHvBJ8kf7bOiP-dLJV" alt="Auf einem blau-grünen Button steht in weißen Großbuchstaben: Download" width="20px">  neben der Überschrift kann jederzeit das Tutorial aufgerufen werden, welches die Funktionsweise der App noch einmal erklärt. Geschlossen wird das Tutorial wieder über den Close-Button.
+
+     <img src="http://drive.google.com/uc?export=view&id=1E6EWQ1YX3Gnun8YjmdCA-huil5Rqpn9I" alt="Der Mauszeiger klickt auf den gelb-roten Button neben der Überschrift der Seite. Daraufhin öffnet sich ein Pop-up. In weißer Schrift auf blauem Hintergrund wird die Benutzung der Webseite auf englisch erläutert." height="200px">
+
+    <br>
 
 ---
 <br>
 
 
-## Verwendete Frameworks
+## Aufbau und Technische Umsetzung
 
+* [Systembild](#systembild)
+* [ffmpeg](#warum-ffmpeg)
+
+
+### Systembild
+
+//TODO: Systembild + Erklärung
+
+### Warum ffmpeg
+Eines unserer Ziele war es, das Herunterladen von Videos mit angewandten Filtern zu ermöglichen, und da die CSS-Filterung keine echte Videotransformation ermöglicht, haben wir begonnen, nach möglichen Lösungen zu suchen.<br />
+ Nach einigen Recherchen hatten wir zwei Hauptoptionen: Die WebGl-Library zusammen mit Canvas oder die ffmpeg-Library, da dies sehr leistungsfähige Bibliotheken sind, die es ermöglichen, Änderungen an jedem Pixel des Videos vorzunehmen. WebGl war eine gute Option, aber das Ergebnis wird als Canvas-Element angezeigt, was bedeutet, dass wir das Ergebnisvideo zuerst aufzeichnen müssen, damit es als Videodatei heruntergeladen werden kann. <br />
+ Auf der anderen Seite hatten wir die ffmpeg-Library, die uns die Möglichkeit gab, gefilterte Videos als Videodatei zu erhalten und wir mussten das Videoergebnis nicht aufzeichnen. Außerdem verfügt die ffmpeg-Library über eine Fluent ffmpeg-API für node.js, die perfekt zu unseren Bedürfnissen für das React-Projekt passte - deshalb haben wir uns entschieden, diese Library in unserem Projekt zu verwenden.
+
+## Verwendete Libraries
+
+* [React](https://reactjs.org/)
+
+    JavaScript library zum Erstellen des User-Interfaces.
 
 * [node fluent ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)
 
