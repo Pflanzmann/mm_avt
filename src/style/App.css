@@ -1,11 +1,11 @@
 
 .video-frame {
-  max-height: 80vh;
-  max-width: 140vh;
+height: 80vh;
+ width: 140vh;
 }
 
 .files input {
-  outline: 2px dashed #ffd166;
+  outline: 2px double #ffd166;
   outline-offset: -10px;
   -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
   transition: outline-offset .15s ease-in-out, background-color .15s linear;
@@ -86,7 +86,7 @@ body{
 
   grid-template-areas: "header header"
                        "filterImages videoDiv"
-                        "something timeline"
+                        "audioFilter timeline"
                         "footer footer";
                       }
               
@@ -100,9 +100,6 @@ header{
   font-style: normal;
   height: 100%;
   width: 100%;
-  /* text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-color:rgba(4, 58, 59, 0.438);   */
 }
 
 .filter-images{
@@ -115,6 +112,16 @@ header{
   max-width: 13vw;
   margin: 0px 0px 10px 2vw;
 }
+
+.container{
+  grid-area: audioFilter;
+  min-width: 18vw;
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 
 .videoDiv {
   grid-area: videoDiv;
@@ -169,9 +176,3 @@ button:hover:enabled {
   box-shadow: 0 1px 0px 1px #073b4c;
 }
 
-.container{
-  grid-area: something;
-  max-width: 13vw;
-  display: block;
-  position: relative;
-}

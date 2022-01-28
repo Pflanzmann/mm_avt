@@ -11,8 +11,9 @@
 
 .audioFilters{
   border-style: dotted;
-  border-width: 4px;
+  border-width: 5px;
   border-color: rgba(238, 234, 9, 0.767);
+  background-color: rgba(8, 112, 107, 0.527);
   height: 100%;
   width: 46%;
   margin: 0px 2vw;

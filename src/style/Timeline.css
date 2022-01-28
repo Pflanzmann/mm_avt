@@ -74,6 +74,7 @@
 }
 
 .scale {
+    position: relative;
     display: flex;
     height: 4vh;
     background: white;
