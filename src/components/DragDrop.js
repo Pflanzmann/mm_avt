@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import FilterImage from '../components/FilterImage';
-import { useDrop } from 'react-dnd';
 import "../style/DragDrop.css";
 import * as Constants from "../constants/FilterImageList.js";
 

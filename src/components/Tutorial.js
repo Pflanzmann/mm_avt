@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import "../style/Modal.css";
 
-
+/**
+* Modal as User Interface pattern for Tutorial Pop-up
+* provides information and requires confirmation 
+* component to manage state of modal
+* button to access modal
+* State includes property (show), if show: false, the modal is hidden
+*/
 class Tutorial extends Component {
   constructor() {
     super();
@@ -12,14 +18,27 @@ class Tutorial extends Component {
     this.hideModal = this.hideModal.bind(this);
   }
 
+  /** 
+  *Updates show-property to true, when user opens modal
+  */
   showModal = () => {
     this.setState({ show: true });
   };
 
+  /**
+  * Updates show-property to false, when user closes the modal
+  */
   hideModal = () => {
     this.setState({ show: false });
   };
 
+  /**
+  * Lifecycle method
+  * handles the display of the modal
+  * Button accepts onClick-attribute to apply .showModal()
+  * attributes show, handleClose are props from modal component
+  * -> manage logic of state and hideModal()
+  */
   render() {
     return (
       <main>
@@ -61,16 +80,29 @@ class Tutorial extends Component {
   }
 }
 
+/**
+* Stateless functional modal component 
+* Arguments: handleClose, show, children
+* show represents property on state
+*/
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
+
+  /** 
+   * Passes argument children (represented as props.children) 
+   * -> reference to opening/closing functionality
+   * Button to close modal 
+   * -> onClick attribute, accepts hideModal(), represented as argument handleClose
+   * showHideClassName assigns value conditional check if value of show-property is true
+   * properties display-block/display-none are handled through Modal.css
+  */
   return (
     <div className={showHideClassName}>
       <section className='modal-main'>
         {children}
         <button className="tutorialclsbtn"
-          onClick={handleClose}
-        >
+          onClick={handleClose}>
           Close
         </button>
       </section>

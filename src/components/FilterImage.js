@@ -2,17 +2,21 @@ import React from 'react';
 import { useDrag } from "react-dnd";
 import "../style/DragDrop.css";
 
-//implement all the logic needed to make Images draggable
+/**
+ * implements all the logic needed for images to be draggable
+ * each item has an ID, so that later only filters with the same ID can be dropped in the same area
+ * isDragging: if the element is being dragged
+ * drag: reference to element that is supposed to be draggable
+ * collect: to define different states and props, whenever useDrag-Hook is being called
+ * @param id: the ID of the draggable image, url: the source-url, where the image comes from
+ * @returns a draggable object
+ */
 function FilterImage({ id, url }) {
 
-    //[if element is being dragged, reference to element that is supposed to be draggable]
-    //returns object
     const [{ isDragging }, drag] = useDrag(() => ({
-        type: "image", //identifier in case different things should be dragged different ways
-        item: { id: id }, //for later: so that only filters with same id can be dropped in same area
+        type: "image", 
+        item: { id: id }, 
 
-        //define different states&props whenever useDrag-Hook is called
-        //monitor.  -> has lots of different functions
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         })
