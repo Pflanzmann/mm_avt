@@ -34,13 +34,11 @@ app.post('/upload', (req, res) => {
         if (err) {
             return res.status(500).json(err)
         }
-        console.log(req.file)
         return res.status(200).send(req.file)
     })
 })
 
 app.post('/filter', (req, res) => {
-    console.log(req.body.filters)
     if (fs.existsSync(`upload/${filename}`)) {
         ffmpeg(`upload/${filename}`)
             .videoFilters(req.body.filters)
@@ -50,7 +48,6 @@ app.post('/filter', (req, res) => {
                     return res.status(200).send(req.file)
             })
             .on('error', function (err) {
-                console.log('error: ' + err);
                 return res.status(500).json(err)
             }).run();
     }
