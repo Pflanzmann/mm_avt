@@ -1,19 +1,29 @@
 import axios from "axios";
 
+/**
+ * Helper for uploading video
+ * @param onSuccess passes video file when it's uploaded to VideoPlayer.js for video to be displayed
+ * @param visibility boolean value to set upload form visible/invisible
+ * @returns {JSX.Element} form with input for video
+ */
 export const FileUploader = ({onSuccess, visibility}) => {
+    /**
+     * Observes input field. Starts uploading of the video as soon as the video was chosen in the input field
+     * @param event video chosen
+     */
     const onInputChange = (event) => {
-        console.log(event.target.files[0])
         if (event.target.files[0].type === "video/mp4")
             uploadVideo(event, event.target.files[0]);
     }
 
-    const uploadVideo = (event, video) => {
-        event.preventDefault();
-
+    /**
+     * Calls api to upload the chosen video
+     * @param video video to upload
+     */
+    const uploadVideo = (video) => {
         const data = new FormData();
 
         data.append('file', video);
-        console.log(data)
         axios.post('//localhost:5000/upload', data)
             .then((res) => {
                 onSuccess(res.data)

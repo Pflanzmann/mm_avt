@@ -1,5 +1,9 @@
 import * as Constants from "../constants/FilterBars.js";
 
+/**
+ * Helper function to convert video filters to ffmpeg-library request
+ * @returns {string} request - concatenation of all filters to be applied to the video
+ */
 export function convertFilters() {
     let request = []
     const filterBarRight = document.getElementById("lastScaleLine").getBoundingClientRect().right - document.getElementById("scale").getBoundingClientRect().left;
@@ -20,8 +24,6 @@ export function convertFilters() {
             startTime = Math.round(relativeVideoStart);
             endTime = Math.round(relativeVideoEnd);
 
-            console.log("filterId: " + filter.filterId + "startTime: " + startTime + " | endTime: " + endTime)
-
             switch (filter.filterId) {
                 case 0:
                     request.push(`hue=s=0:enable=\'between(t,${startTime},${endTime})\'`)
@@ -36,7 +38,6 @@ export function convertFilters() {
                     request.push(`rgbashift=rh=15:bv=15:gh=-15:enable=\'between(t,${startTime},${endTime})\'`)
                     break;
                 case 4:
-                    //can also make cold filter with colortemperature=9000:pl=1
                     request.push(`colortemperature=3000:pl=1:enable=\'between(t,${startTime},${endTime})\'`)
                     break;
                 case 5:
@@ -47,8 +48,6 @@ export function convertFilters() {
             }
         })
     })
-
-    console.log(request.join(","))
     return request.join(",")
 }
 
