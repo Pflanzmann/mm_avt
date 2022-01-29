@@ -2,8 +2,10 @@ import useAudioFilter from "../hooks/useAudioFilter";
 import "../style/AudioFilter.css";
 import "../style/App.css";
 
-
-
+/**
+ * React component for our audiofilter.
+ * Creates a checkbox for each available audiofilter and sets the corresponding on click function.
+ */
 export default () => {
 	const {
 		setLowpass,

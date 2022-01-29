@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import * as Constants from "../constants/checkBoxBooleans.js"
 
+/**
+ * Audiofilter hook that gets called after a checkbox was ticked.
+ * Instantiates each filter and checks afterwards, which value each filter should get, based on the checkboxes.
+ */
+
 var videoElement;
 const ctx = new AudioContext();
 const lowpass = ctx.createBiquadFilter();
@@ -20,6 +25,9 @@ notch.type = 'notch';
 
 const useAudioFilter = () => {
 
+    /**
+     * Basic array setter.
+     */
 	const [audioFilterStates, setAudioFilterStates] = useState({
         lowpassChecked: false,
         bandpassChecked: false,
@@ -30,6 +38,10 @@ const useAudioFilter = () => {
         notch: false,
     });
     
+    /**
+     * Sets only the lowpass value
+     * @param {*} truelean Boolean value for the lowpass filter. Determines if the lowpass filter is enabled or not.
+     */
     const setLowpass = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -37,6 +49,10 @@ const useAudioFilter = () => {
         });
     }
     
+    /**
+     * Sets only the bandpass value
+     * @param {*} truelean Boolean value for the bandpass filter. Determines if the bandpass filter is enabled or not.
+     */
     const setBandpass = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -44,6 +60,10 @@ const useAudioFilter = () => {
         });
     }
 
+    /**
+     * Sets only the highpass value
+     * @param {*} truelean Boolean value for the highpass filter. Determines if the highpass filter is enabled or not.
+     */
     const setHighpass = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -51,6 +71,10 @@ const useAudioFilter = () => {
         });
     }
 
+    /**
+     * Sets only the lowshelf value
+     * @param {*} truelean Boolean value for the lowshelf filter. Determines if the lowshelf filter is enabled or not.
+     */
     const setLowshelf = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -58,6 +82,10 @@ const useAudioFilter = () => {
         });
     }
     
+    /**
+     * Sets only the highshelf value
+     * @param {*} truelean Boolean value for the highshelf filter. Determines if the highshelf filter is enabled or not.
+     */
     const setHighshelf = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -65,6 +93,10 @@ const useAudioFilter = () => {
         });
     }
 
+    /**
+     * Sets only the peaking value
+     * @param {*} truelean Boolean value for the peaking filter. Determines if the peaking filter is enabled or not.
+     */
     const setPeaking = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -72,6 +104,10 @@ const useAudioFilter = () => {
         });
     }
     
+    /**
+     * Sets only the notch value
+     * @param {*} truelean Boolean value for the notch filter. Determines if the notch filter is enabled or not.
+     */
     const setNotch = (truelean) => {
         setAudioFilterStates({
             ...audioFilterStates,
@@ -84,6 +120,10 @@ const useAudioFilter = () => {
         applyFilter();
     })
 
+    /**
+     * Applies each audio filter based on the values of the checkboxes. If an audio filter was not checked, 
+     * the frequency values are set to be out ouf the hearable range. 
+     */
     function applyFilter(){
         videoElement = document.getElementById("videoSource");
         var mediaElement = ctx.createMediaElementSource(videoElement);

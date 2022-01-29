@@ -1,3 +1,6 @@
+/**
+ * Global boolean array for checking if an audiofilter should be applied or not.
+ */
 export let checkBoxBooleans = 
     {
         lowpassChecked: false,
