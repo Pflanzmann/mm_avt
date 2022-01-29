@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import { FileUploader } from "../helper/FileUploader";
 import { Video } from "../helper/Video";
 import axios from "axios";
@@ -6,7 +6,7 @@ import ApplyFilters from "../helper/ApplyFilters";
 import { useBeforeunload } from 'react-beforeunload';
 import * as ConstantBooleans from "../constants/checkBoxBooleans.js"
 
-var videoElement;
+let videoElement;
 const ctx = new AudioContext();
 const lowpass = ctx.createBiquadFilter();
 const bandpass = ctx.createBiquadFilter();
@@ -32,12 +32,15 @@ export default () => {
 
     useBeforeunload(() => deleteUploadedAndFilteredVideos());
 
+    /**
+     * Sends request to server to apply chosen filters to uploaded video
+     * @param props converted string representing filters
+     */
     function applyFilters(props) {
         console.log(props)
         axios.post(`//localhost:5000/filter`, { filters: props }, {})
             .then((res) => {
-                console.log('Success in apply filter')
-                console.log(res.data)
+                onSuccess(res.data)
                 setFiltered(true)
             })
             .catch((e) => {
@@ -45,6 +48,12 @@ export default () => {
             })
     }
 
+    /**
+     * Triggers action to happen after the video was successfully uploaded:
+     * Sets uploaded video to be displayed. Controls visibility of upload input field and video itself.
+     * Permits filtering for audio
+     * @param uploadedVideo
+     */
     function onSuccess(uploadedVideo) {
         setUploadedVideo(uploadedVideo)
         setUploaderVisibility("hidden")
@@ -52,6 +61,9 @@ export default () => {
         setAudioFilter();
     }
 
+    /**
+     * Controls audio filters
+     */
     function setAudioFilter(){
 
         //This works, but only if the browser was refreshed due to changes in js
@@ -59,7 +71,7 @@ export default () => {
         //TODO: make it work after browsertab refresh - does work on firefox...
 
         videoElement = document.getElementById("videoSource");
-        var mediaElement = ctx.createMediaElementSource(videoElement);
+        const mediaElement = ctx.createMediaElementSource(videoElement);
         mediaElement.connect(lowpass);
 
         lowpass.frequency.value = ConstantBooleans.checkBoxBooleans.lowpassChecked ? 4000 : 24000;
@@ -90,8 +102,10 @@ export default () => {
         notch.connect(ctx.destination);
     }
 
+    /**
+     * Sends request to server to download filtered video
+     */
     function downloadVideo() {
-        console.log("ready for download")
         fetch('http://localhost:5000/filtered.mp4')
             .then(response => {
                 response.blob().then(blob => {
@@ -104,6 +118,9 @@ export default () => {
             });
     }
 
+    /**
+     * Deletes uploaded and/or filtered video files
+     */
     function deleteUploadedAndFilteredVideos() {
         axios.post(`//localhost:5000/delete`)
             .then((res) => {
@@ -114,6 +131,9 @@ export default () => {
             })
     }
 
+    /**
+     * Sets states to default and deletes uploaded/filtered video
+     */
     function loadNewVideo() {
         setDefaultEnabled(false)
         setUploadedVideo(null)
