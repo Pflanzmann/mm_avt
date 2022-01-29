@@ -48,7 +48,6 @@ export default () => {
     }
 
     if (scaleState.duration > 0) {
-        console.log(scaleState.duration)
         if (scaleState.duration % 10 === 0) {
             temp[scaleState.duration] = (<dev className="scalePrimaryLine" id="lastScaleLine" style={{
                 marginRight: "0vw",

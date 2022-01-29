@@ -8,14 +8,14 @@ const fs = require('fs');
 const app = express();
 
 //make paths variables instead of direct paths
-ffmpeg.setFfmpegPath("C:/Users/Paula/Desktop/HTW_WiSe21-22/AVT/ffmpeg/bin/ffmpeg.exe")
-ffmpeg.setFfprobePath("C:/Users/Paula/Desktop/HTW_WiSe21-22/AVT/ffmpeg/bin")
+ffmpeg.setFfmpegPath("C:/Users/ekrysenkova/Desktop/HTW/ffmpeg/bin/ffmpeg.exe")
+ffmpeg.setFfprobePath("C:/Users/ekrysenkova/Desktop/HTW/ffmpeg/bin")
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static('upload'))
 
-let filename = "bla";
+let filename = "default_video.mp4";
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -57,26 +57,28 @@ app.post('/filter', (req, res) => {
 });
 
 app.post('/delete', (req, res) => {
-    fs.stat(`upload/${filename}`, function (err, stats) {
-        console.log(stats);
-        if (err) {
-            return console.error(err);
-        }
-        fs.unlink(`upload/${filename}`, function (err) {
-            if (err) return console.log(err);
+    if(filename !== "default_video.mp4") {
+        fs.stat(`upload/${filename}`, function (err, stats) {
+            console.log(stats);
+            if (err) {
+                return console.error(err);
+            }
+            fs.unlink(`upload/${filename}`, function (err) {
+                if (err) return console.log(err);
+            });
         });
-    });
-    fs.stat('upload/filtered.mp4', function (err, stats) {
-        console.log(stats);
-        if (err) {
-            return console.error(err);
-        }
-        fs.unlink('upload/filtered.mp4', function (err) {
-            if (err) return console.log(err);
+        fs.stat('upload/filtered.mp4', function (err, stats) {
+            console.log(stats);
+            if (err) {
+                return console.error(err);
+            }
+            fs.unlink('upload/filtered.mp4', function (err) {
+                if (err) return console.log(err);
+            });
         });
-    });
-
+    }
 });
+
 
 app.listen(5000, () => {
     console.log('App is running on port 5000')

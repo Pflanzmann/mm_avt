@@ -1,12 +1,10 @@
-
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { FileUploader } from "../helper/FileUploader";
 import { Video } from "../helper/Video";
 import axios from "axios";
 import ApplyFilters from "../helper/ApplyFilters";
 import { useBeforeunload } from 'react-beforeunload';
 import * as ConstantBooleans from "../constants/checkBoxBooleans.js"
-
 
 var videoElement;
 const ctx = new AudioContext();
@@ -26,19 +24,20 @@ peaking.type = 'peaking';
 notch.type = 'notch';
 
 export default () => {
-    const [uploderVisibility, setUploaderVisibility] = useState("visible")
-    const [viseoVisibility, setVideoVisibility] = useState("hidden")
+    const [uploderVisibility, setUploaderVisibility] = useState("hidden")
+    const [viseoVisibility, setVideoVisibility] = useState("visible")
     const [uploadedVideo, setUploadedVideo] = useState(null)
     const [filtered, setFiltered] = useState(false)
+    const [defaultEnabled, setDefaultEnabled] = useState(true)
 
     useBeforeunload(() => deleteUploadedAndFilteredVideos());
+
     function applyFilters(props) {
         console.log(props)
         axios.post(`//localhost:5000/filter`, { filters: props }, {})
             .then((res) => {
                 console.log('Success in apply filter')
                 console.log(res.data)
-                onSuccess(res.data)
                 setFiltered(true)
             })
             .catch((e) => {
@@ -47,7 +46,6 @@ export default () => {
     }
 
     function onSuccess(uploadedVideo) {
-        console.log("On sucess in videoPlayer")
         setUploadedVideo(uploadedVideo)
         setUploaderVisibility("hidden")
         setVideoVisibility("visible")
@@ -63,30 +61,30 @@ export default () => {
         videoElement = document.getElementById("videoSource");
         var mediaElement = ctx.createMediaElementSource(videoElement);
         mediaElement.connect(lowpass);
-        
+
         lowpass.frequency.value = ConstantBooleans.checkBoxBooleans.lowpassChecked ? 4000 : 24000;
         lowpass.connect(bandpass);
 
         bandpass.frequency.value = 12000;
         bandpass.Q.value = ConstantBooleans.checkBoxBooleans.bandpassChecked ? 3000 : 0;
         bandpass.connect(highpass);
-        
+
         highpass.frequency.value = ConstantBooleans.checkBoxBooleans.highpassChecked ? 18000 : 0;
         highpass.connect(lowshelf);
-        
+
         lowshelf.gain.value = 20;
         lowshelf.frequency.value = ConstantBooleans.checkBoxBooleans.lowshelfChecked ? 6000 : 0;
         lowshelf.connect(highshelf);
-        
+
         highshelf.gain.value = 20;
         highshelf.frequency.value = ConstantBooleans.checkBoxBooleans.highshelfChecked ? 18000 : 24000;
         highshelf.connect(peaking);
-        
+
         peaking.gain.value = 20;
         peaking.frequency.value = 12000;
         peaking.Q.value = ConstantBooleans.checkBoxBooleans.peakingChecked ? 3000 : 0;
         peaking.connect(notch);
-        
+
         notch.frequency.value = 12000;
         notch.Q.value = ConstantBooleans.checkBoxBooleans.notchChecked ? 3000 : 24000;
         notch.connect(ctx.destination);
@@ -117,6 +115,7 @@ export default () => {
     }
 
     function loadNewVideo() {
+        setDefaultEnabled(false)
         setUploadedVideo(null)
         setFiltered(false)
         setUploaderVisibility("visible")
@@ -127,9 +126,9 @@ export default () => {
     return (
         <div className='videoDiv'>
             <FileUploader id="uploader" onSuccess={onSuccess} visibility={uploderVisibility} />
-            <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={viseoVisibility} />
+            <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={viseoVisibility} isDefault={defaultEnabled}/>
             <div />
-            <ApplyFilters handleFilters={applyFilters} disableButton={uploadedVideo == null} />
+            <ApplyFilters handleFilters={applyFilters} disableButton={(defaultEnabled==false && uploadedVideo == null)} />
             <div />
             <button disabled={!filtered} onClick={downloadVideo}>Download</button>
             <button onClick={loadNewVideo}>Upload new video</button>
