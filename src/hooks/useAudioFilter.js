@@ -131,7 +131,7 @@ const useAudioFilter = () => {
         lowpass.connect(bandpass);
 
         bandpass.frequency.value = 12000;
-        bandpass.Q.value = audioFilterStates.bandpassChecked ? 3000 : 0;
+        bandpass.Q.value = audioFilterStates.bandpassChecked ? 0.5 : 0;
         bandpass.connect(highpass);
 
         highpass.frequency.value = audioFilterStates.highpassChecked ? 18000 : 0;
@@ -147,11 +147,11 @@ const useAudioFilter = () => {
 
         peaking.gain.value = 20;
         peaking.frequency.value = 12000;
-        peaking.Q.value = audioFilterStates.peakingChecked ? 3000 : 0;
+        peaking.Q.value = audioFilterStates.peakingChecked ? 0.5 : 0;
         peaking.connect(notch);
 
         notch.frequency.value = 12000;
-        notch.Q.value = audioFilterStates.notchChecked ? 3000 : 24000;
+        notch.Q.value = audioFilterStates.notchChecked ? 0.5 : 1;
         notch.connect(ctx.destination);
     }
 
