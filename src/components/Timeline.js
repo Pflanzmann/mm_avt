@@ -58,9 +58,9 @@ export default () => {
      */
     if (scaleState.duration > 0) {
         if (scaleState.duration % 10 === 0) {
-            temp[scaleState.duration] = (<dev className="scalePrimaryLine" id="lastScaleLine" style={{
+            temp[scaleState.duration] = (<div className="scalePrimaryLine" id="lastScaleLine" style={{
                 marginRight: "0vw",
-            }}></dev>)
+            }}></div>)
         } else {
             if (scaleState.duration % 5 === 0) {
                 temp[scaleState.duration] = (<div className="scaleSecondaryLine" id="lastScaleLine" style={{
