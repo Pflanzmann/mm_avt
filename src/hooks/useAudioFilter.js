@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Audiofilter hook that gets called after a checkbox was ticked.
@@ -145,36 +145,75 @@ const useAudioFilter = () => {
             peaking.type = 'peaking';
             notch.type = 'notch';
 
-            mediaElement.connect(lowpass);
-            lowpass.connect(bandpass);
-            bandpass.connect(highpass);
-            highpass.connect(lowshelf);
-            lowshelf.connect(highshelf);
-            highshelf.connect(peaking);
-            peaking.connect(notch);
-            notch.connect(ctx.destination);
+            lowpass.frequency.value = 4000;
+
+            bandpass.frequency.value = 12000;
+            bandpass.Q.value = 0.5;
+
+            highpass.frequency.value = 18000;
+
+            lowshelf.gain.value = 20;
+            lowshelf.frequency.value = 6000;
+
+            highshelf.gain.value = 20;
+            highshelf.frequency.value = 18000;
+
+            peaking.gain.value = 20;
+            peaking.frequency.value = 12000;
+            peaking.Q.value = 0.5;
+
+            notch.frequency.value = 12000;
+            notch.Q.value = 0.5;
         }
 
+        console.log("update")
 
-        lowpass.frequency.value = audioFilterStates.lowpassChecked ? 4000 : 24000;
+        mediaElement.disconnect();
+        var lastFilter = mediaElement;
 
-        bandpass.frequency.value = 12000;
-        bandpass.Q.value = audioFilterStates.bandpassChecked ? 0.5 : 0;
+        if (audioFilterStates.lowpassChecked) {
+            lowpass.disconnect()
+            lastFilter.connect(lowpass)
+            lastFilter = lowpass;
+        }
 
-        highpass.frequency.value = audioFilterStates.highpassChecked ? 18000 : 0;
+        if (audioFilterStates.bandpassChecked) {
+            bandpass.disconnect()
+            lastFilter.connect(bandpass)
+            lastFilter = bandpass;
+        }
 
-        lowshelf.gain.value = 20;
-        lowshelf.frequency.value = audioFilterStates.lowshelfChecked ? 6000 : 0;
+        if (audioFilterStates.highpassChecked) {
+            highpass.disconnect()
+            lastFilter.connect(highpass)
+            lastFilter = highpass;
+        }
 
-        highshelf.gain.value = 20;
-        highshelf.frequency.value = audioFilterStates.highshelfChecked ? 18000 : 24000;
+        if (audioFilterStates.lowshelfChecked) {
+            lowshelf.disconnect()
+            lastFilter.connect(lowshelf)
+            lastFilter = lowshelf;
+        }
 
-        peaking.gain.value = 20;
-        peaking.frequency.value = 12000;
-        peaking.Q.value = audioFilterStates.peakingChecked ? 0.5 : 0;
+        if (audioFilterStates.highshelfChecked) {
+            highshelf.disconnect()
+            lastFilter.connect(highshelf)
+            lastFilter = highshelf;
+        }
 
-        notch.frequency.value = 12000;
-        notch.Q.value = audioFilterStates.notchChecked ? 0.5 : 1;
+        if (audioFilterStates.peakingChecked) {
+            peaking.disconnect()
+            lastFilter.connect(peaking)
+            lastFilter = peaking;
+        }
+
+        if (audioFilterStates.notchChecked) {
+            notch.disconnect()
+            lastFilter.connect(notch)
+            lastFilter = notch;
+        }
+
+        lastFilter.connect(ctx.destination);
     }
 
     return {
