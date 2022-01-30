@@ -145,24 +145,24 @@ const useAudioFilter = () => {
             peaking.type = 'peaking';
             notch.type = 'notch';
 
-            lowpass.frequency.value = 4000;
+            lowpass.frequency.value = 1000;
 
-            bandpass.frequency.value = 12000;
+            bandpass.frequency.value = 3500;
             bandpass.Q.value = 0.5;
 
-            highpass.frequency.value = 18000;
+            highpass.frequency.value = 8000;
 
             lowshelf.gain.value = 20;
-            lowshelf.frequency.value = 6000;
+            lowshelf.frequency.value = 1000;
 
             highshelf.gain.value = 20;
-            highshelf.frequency.value = 18000;
+            highshelf.frequency.value = 8000;
 
             peaking.gain.value = 20;
-            peaking.frequency.value = 12000;
+            peaking.frequency.value = 3500;
             peaking.Q.value = 0.5;
 
-            notch.frequency.value = 12000;
+            notch.frequency.value = 3500;
             notch.Q.value = 0.5;
         }
 
