@@ -217,7 +217,9 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.
 
 ### Systembild
 
-//TODO: Systembild + Erklärung
+  <img src="http://drive.google.com/uc?export=view&id=1tkV8-7tl8yD7IfgpIuons3GWoRquC3Z2" alt="Systembild der Anwendung" height="300">
+
+  <br>
 
 ### Warum ffmpeg
 Eines unserer Ziele war es, das Herunterladen von Videos mit angewandten Filtern zu ermöglichen, und da die CSS-Filterung keine echte Videotransformation ermöglicht, haben wir begonnen, nach möglichen Lösungen zu suchen.<br />
