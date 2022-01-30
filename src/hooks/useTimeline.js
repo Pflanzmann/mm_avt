@@ -257,8 +257,6 @@ const useTimeline = () => {
             const relativeProgress = 100 / scaleLenght * offsetPosition
             const newVideoProgress = video.duration / 100 * relativeProgress
 
-            console.log("newPosition: " + newVideoProgress)
-
             const videoSource = document.getElementById("videoSource");
             if (videoSource != undefined) {
                 videoSource.currentTime = newVideoProgress;
