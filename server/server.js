@@ -65,6 +65,7 @@ app.post('/filter', (req, res) => {
 });
 
 app.post('/deleteUploaded', (req, res) => {
+    filename = "default_video.mp4"
     if (filename !== "default_video.mp4") {
         fs.stat(`upload/${filename}`, function (err, stats) {
             console.log(stats);
