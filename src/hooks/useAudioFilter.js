@@ -5,22 +5,18 @@ import { useState, useEffect } from "react";
  * Instantiates each filter and checks afterwards, which value each filter should get, based on the checkboxes.
  */
 
-var videoElement;
-const ctx = new AudioContext();
-const lowpass = ctx.createBiquadFilter();
-const bandpass = ctx.createBiquadFilter();
-const highpass = ctx.createBiquadFilter();
-const lowshelf = ctx.createBiquadFilter();
-const highshelf = ctx.createBiquadFilter();
-const peaking = ctx.createBiquadFilter();
-const notch = ctx.createBiquadFilter();
-lowpass.type = 'lowpass';
-bandpass.type = 'bandpass';
-highpass.type = 'highpass';
-lowshelf.type = 'lowshelf';
-highshelf.type = 'highshelf';
-peaking.type = 'peaking';
-notch.type = 'notch';
+var videoElement = undefined;
+var mediaElement = undefined;
+var ctx = undefined;
+var lowpass = undefined;
+var bandpass = undefined;
+var highpass = undefined;
+var lowshelf = undefined;
+var highshelf = undefined;
+var peaking = undefined;
+var notch = undefined;
+
+var startup = false;
 
 const useAudioFilter = () => {
 
@@ -123,36 +119,62 @@ const useAudioFilter = () => {
      * the frequency values are set to be out ouf the hearable range. 
      */
     function applyFilter() {
+        if (!startup) {
+            startup = true;
+            return
+        }
+
         videoElement = document.getElementById("videoSource");
-        var mediaElement = ctx.createMediaElementSource(videoElement);
-        mediaElement.connect(lowpass);
+        if (videoElement != undefined && mediaElement == undefined) {
+            ctx = new AudioContext();
+            lowpass = ctx.createBiquadFilter();
+            bandpass = ctx.createBiquadFilter();
+            highpass = ctx.createBiquadFilter();
+            lowshelf = ctx.createBiquadFilter();
+            highshelf = ctx.createBiquadFilter();
+            peaking = ctx.createBiquadFilter();
+            notch = ctx.createBiquadFilter();
+
+            mediaElement = ctx.createMediaElementSource(videoElement);
+
+            lowpass.type = 'lowpass';
+            bandpass.type = 'bandpass';
+            highpass.type = 'highpass';
+            lowshelf.type = 'lowshelf';
+            highshelf.type = 'highshelf';
+            peaking.type = 'peaking';
+            notch.type = 'notch';
+
+            mediaElement.connect(lowpass);
+            lowpass.connect(bandpass);
+            bandpass.connect(highpass);
+            highpass.connect(lowshelf);
+            lowshelf.connect(highshelf);
+            highshelf.connect(peaking);
+            peaking.connect(notch);
+            notch.connect(ctx.destination);
+        }
+
 
         lowpass.frequency.value = audioFilterStates.lowpassChecked ? 4000 : 24000;
-        lowpass.connect(bandpass);
 
         bandpass.frequency.value = 12000;
         bandpass.Q.value = audioFilterStates.bandpassChecked ? 0.5 : 0;
-        bandpass.connect(highpass);
 
         highpass.frequency.value = audioFilterStates.highpassChecked ? 18000 : 0;
-        highpass.connect(lowshelf);
 
         lowshelf.gain.value = 20;
         lowshelf.frequency.value = audioFilterStates.lowshelfChecked ? 6000 : 0;
-        lowshelf.connect(highshelf);
 
         highshelf.gain.value = 20;
         highshelf.frequency.value = audioFilterStates.highshelfChecked ? 18000 : 24000;
-        highshelf.connect(peaking);
 
         peaking.gain.value = 20;
         peaking.frequency.value = 12000;
         peaking.Q.value = audioFilterStates.peakingChecked ? 0.5 : 0;
-        peaking.connect(notch);
 
         notch.frequency.value = 12000;
         notch.Q.value = audioFilterStates.notchChecked ? 0.5 : 1;
-        notch.connect(ctx.destination);
     }
 
     return {

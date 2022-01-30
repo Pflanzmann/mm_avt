@@ -5,8 +5,6 @@ import * as Constants from "../constants/FilterImageList.js";
 import useTimeline from '../hooks/useTimeline';
 import "../style/Timeline.css";
 
-
-
 export default () => {
     const {
         filterState,
