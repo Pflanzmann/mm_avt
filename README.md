@@ -4,7 +4,6 @@
 _Hochschule für Technik und Wirtschaft Berlin, WiSe21/22_
 
 ---
-<br>
 
 ## Inhaltsverzeichnis
 * [Projektbeschreibung](#projektbeschreibung)
@@ -13,11 +12,10 @@ _Hochschule für Technik und Wirtschaft Berlin, WiSe21/22_
 * [Verwendete Libraries](#verwendete-libraries)
 * [Fazit](#fazit)
 * [Contributors](#contributors)
-* [Links & Quellen](#quellen)
+* [Quellen](#quellen)
 * [Lizenz](#lizenz)
 
 ---
-<br>
 
 ## Projektbeschreibung
 * [Overview](#overview)
@@ -29,7 +27,7 @@ _Hochschule für Technik und Wirtschaft Berlin, WiSe21/22_
 ## _Overview_
 Herzlich willkommen in unserem Projekt für Audio- und Videotechnik im WiSe 21/22.<br>
 Ziel unseres Projektes war es, eine Webanwendung zu entwickeln, in der User*innen Videos hochladen, diese mit verschiedenen Video- und Audiofiltern verändern und wieder herunterladen können.
-Dabei können beliebig viele Filter kombiniert werden, ihre Dauer und Häufigkeit kann angepasst werden.
+Dabei können beliebig viele Filter kombiniert werden, die Dauer und Häufigkeit der Videofilter kann angepasst werden.
 
 <br>
 
@@ -92,7 +90,6 @@ An welcher Stelle des Videos die Filter angewendet werden, ist durch farbige Bal
 Der verwendete Videoplayer verfügt über bekannte Funktionen wie Play & Pause.
 
 ---
-<br>
 
 ## Anleitung 
 * [Installation & Run](#installation-und-run)
@@ -166,6 +163,7 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.
 
     <img src="http://drive.google.com/uc?export=view&id=1APfLOQEq2P2uywGPNC6UNBbWv_iZFiV5" alt="Der Mauscursor klickt auf das Bild des schwarz-weiß-Filters in der Filtergalerie und dragt es in die Timeline. Beim Loslassen erscheint ein pinker Balken in einer neuen Zeile in der Timeline. Am Anfang der Zeile ist das Bild des Filters. Dann wird das Bild des blurry-Filters zwei mal in die Timeline gezogen und es erscheinen in einer neuen Zeile nacheinander 2 gelbe Balken." height="200px">
 
+
     <br>
 
     * **Audio**
@@ -191,7 +189,7 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.
     <br>
 
 * #### **Filter anwenden**
-    Wenn die Filter an der gewünschten Position sind, werden sie durch klicken auf den Button <img src="http://drive.google.com/uc?export=view&id=1SxTLfGjwDreDKWMH3vTOVMeE67o7ss1r" alt="Blau-grüner Button mit weißer Schrift: Apply Filter" height="20px">  auf das hochgeladene Video angewandt
+    Wenn die Filter an der gewünschten Position sind, werden sie durch klicken auf den Button <img src="http://drive.google.com/uc?export=view&id=1SxTLfGjwDreDKWMH3vTOVMeE67o7ss1r" alt="Blau-grüner Button mit weißer Schrift: Apply Filter" height="20px">  auf das hochgeladene Video angewandt und die Effekte sind im Videoplayer zu sehen.
 
 * #### **Filter loeschen**
     Durch Doppelklicken auf einen Filterbalken wird dieser gelöscht und der Filtereffekt auch nicht mehr an der Stelle auf das Video angewendet.
@@ -209,7 +207,6 @@ Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.
     <br>
 
 ---
-<br>
 
 
 ## Aufbau und Technische Umsetzung
@@ -231,18 +228,17 @@ Eines unserer Ziele war es, das Herunterladen von Videos mit angewandten Filtern
 
 * [React](https://reactjs.org/)
 
-    JavaScript library zum Erstellen des User-Interfaces.
+    JavaScript-Library zum Erstellen des User-Interfaces.
 
 * [node fluent ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)
 
-    ffmpeg-Library zur Anwendung von Videofiltern und fluent ffmpeg-API zur Verwendung der Libraryabfragen nicht in CLI, sondern im node.js-Code 
+    ffmpeg-Library zur Anwendung von Videofiltern und fluent ffmpeg-API zur Verwendung der Libraryabfragen nicht in CLI, sondern im node.js-Code.
 
 * [react DnD](https://github.com/react-dnd/react-dnd/) 
 
     Library zur Implementierung der drag-and-drop-Funktionalität der Videofilter.
 
 ---
-<br>
 
 ## Fazit
 Das Fazit unserer Projektgruppe, die sich mit der Aufgabe beschäftigt hat, eine Webanwendung für dieses Modul zu entwickeln, ist abschließend folgendes:
@@ -253,7 +249,6 @@ Um auch andere Technologieansätze und deren Nutzbarkeit zu überprüfen, haben 
 Mögliche weitere Features für eine zukünftige Weiterentwicklung der Anwendung könnten die Anpassung der Filter in der Feinheit, den Übergängen sowie der Intensität sein.
 
 ---
-<br>
 
 ## Contributors
 
@@ -266,7 +261,6 @@ Mögliche weitere Features für eine zukünftige Weiterentwicklung der Anwendung
 | Ronny Brzeski | 0569420 |[link](https://github.com/Pflanzmann)
 
 ---
-<br>
 
 ## Quellen
 
@@ -279,7 +273,6 @@ Mögliche weitere Features für eine zukünftige Weiterentwicklung der Anwendung
 [Modal](https://codepen.io/alligatorio/pen/aYzMKL?editors=0100)
 
 ---
-<br>
 
 ## Lizenz
 
