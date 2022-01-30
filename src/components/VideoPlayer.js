@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { FileUploader } from "../helper/FileUploader";
-import { Video } from "../helper/Video";
+import React, {useState} from "react";
+import {FileUploader} from "../helper/FileUploader";
+import {Video} from "../helper/Video";
 import axios from "axios";
 import ApplyFilters from "../helper/ApplyFilters";
-import { useBeforeunload } from 'react-beforeunload';
+import {useBeforeunload} from 'react-beforeunload';
 
 export default () => {
     const [uploderVisibility, setUploaderVisibility] = useState("hidden")
-    const [viseoVisibility, setVideoVisibility] = useState("visible")
+    const [videoVisibility, setVideoVisibility] = useState("visible")
     const [uploadedVideo, setUploadedVideo] = useState(null)
     const [filtered, setFiltered] = useState(false)
     const [defaultEnabled, setDefaultEnabled] = useState(true)
@@ -19,8 +19,10 @@ export default () => {
      * @param props converted string representing filters
      */
     function applyFilters(props) {
-        console.log(props)
-        axios.post(`//localhost:5000/filter`, { filters: props }, {})
+        if (filtered) {
+            deleteFilteredVideo()
+        }
+        axios.post(`//localhost:5000/filter`, {filters: props}, {})
             .then((res) => {
                 onSuccess(res.data)
                 setFiltered(true)
@@ -59,16 +61,39 @@ export default () => {
     }
 
     /**
-     * Deletes uploaded and/or filtered video files
+     * Deletes uploaded video file
      */
-    function deleteUploadedAndFilteredVideos() {
-        axios.post(`//localhost:5000/delete`)
+    function deleteUploadedVideo() {
+        axios.post(`//localhost:5000/deleteUploaded`)
             .then((res) => {
-                console.log('Success in deleting videos')
+                console.log('Success in deleting uploaded video')
             })
             .catch((e) => {
                 console.error('Error', e)
             })
+        setUploadedVideo(null)
+    }
+
+    /**
+     * Deletes filtered video file
+     */
+    function deleteFilteredVideo() {
+        axios.post(`//localhost:5000/deleteFiltered`)
+            .then((res) => {
+                console.log('Success in deleting filtered video')
+            })
+            .catch((e) => {
+                console.error('Error', e)
+            })
+        setFiltered(false)
+    }
+
+    /**
+     * Deletes both uploaded and filtered video files
+     */
+    function deleteUploadedAndFilteredVideos() {
+        deleteUploadedVideo()
+        deleteFilteredVideo()
     }
 
     /**
@@ -76,8 +101,6 @@ export default () => {
      */
     function loadNewVideo() {
         setDefaultEnabled(false)
-        setUploadedVideo(null)
-        setFiltered(false)
         setUploaderVisibility("visible")
         setVideoVisibility("hidden")
         deleteUploadedAndFilteredVideos()
@@ -85,11 +108,13 @@ export default () => {
 
     return (
         <div className='videoDiv'>
-            <FileUploader id="uploader" onSuccess={onSuccess} visibility={uploderVisibility} />
-            <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={viseoVisibility} isDefault={defaultEnabled}/>
-            <div />
-            <ApplyFilters handleFilters={applyFilters} disableButton={(defaultEnabled===false && uploadedVideo == null)} />
-            <div />
+            <FileUploader id="uploader" onSuccess={onSuccess} visibility={uploderVisibility}/>
+            <Video uploadedVideo={uploadedVideo} filtered={filtered} visibility={videoVisibility}
+                   isDefault={defaultEnabled}/>
+            <div/>
+            <ApplyFilters handleFilters={applyFilters}
+                          disableButton={(defaultEnabled === false && uploadedVideo == null)}/>
+            <div/>
             <button disabled={!filtered} onClick={downloadVideo}>Download</button>
             <button onClick={loadNewVideo}>Upload new video</button>
         </div>

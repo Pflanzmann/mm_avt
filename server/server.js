@@ -39,6 +39,17 @@ app.post('/upload', (req, res) => {
 })
 
 app.post('/filter', (req, res) => {
+    if (fs.existsSync(`upload/filtered.mp4`)) {
+        fs.stat('upload/filtered.mp4', function (err, stats) {
+            console.log(stats);
+            if (err) {
+                return console.error(err);
+            }
+            fs.unlink('upload/filtered.mp4', function (err) {
+                if (err) return console.log(err);
+            });
+        });
+    }
     if (fs.existsSync(`upload/${filename}`)) {
         ffmpeg(`upload/${filename}`)
             .videoFilters(req.body.filters)
@@ -53,8 +64,8 @@ app.post('/filter', (req, res) => {
     }
 });
 
-app.post('/delete', (req, res) => {
-    if(filename !== "default_video.mp4") {
+app.post('/deleteUploaded', (req, res) => {
+    if (filename !== "default_video.mp4") {
         fs.stat(`upload/${filename}`, function (err, stats) {
             console.log(stats);
             if (err) {
@@ -64,16 +75,19 @@ app.post('/delete', (req, res) => {
                 if (err) return console.log(err);
             });
         });
-        fs.stat('upload/filtered.mp4', function (err, stats) {
-            console.log(stats);
-            if (err) {
-                return console.error(err);
-            }
-            fs.unlink('upload/filtered.mp4', function (err) {
-                if (err) return console.log(err);
-            });
-        });
     }
+});
+
+app.post('/deleteFiltered', (req, res) => {
+    fs.stat('upload/filtered.mp4', function (err, stats) {
+        console.log(stats);
+        if (err) {
+            return console.error(err);
+        }
+        fs.unlink('upload/filtered.mp4', function (err) {
+            if (err) return console.log(err);
+        });
+    });
 });
 
 
