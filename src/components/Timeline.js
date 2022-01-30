@@ -43,7 +43,7 @@ export default () => {
     const temp = [];
     for (let index = 0; index < scaleState.duration; index++) {
         if (index % 10 === 0) {
-            temp.push(<dev className="scalePrimaryLine"></dev>)
+            temp.push(<div className="scalePrimaryLine"></div>)
         } else {
             if (index % 5 === 0) {
                 temp.push(<div className="scaleSecondaryLine" ></div>)
