@@ -18,8 +18,12 @@ export default () => {
         setFilterBoxPosition,
         dropNewFilter,
         deleteFilter,
+        clickInVideoProgress,
     } = useTimeline();
 
+    /**
+     * To receive the drag and drop event and procress it 
+     */
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "image",
         drop: (item, monitor) => {
@@ -34,6 +38,10 @@ export default () => {
         dropNewFilter(id, positionX)
     };
 
+
+    /**
+     * This defines the lines of the timeline scale and how many are required
+     */
     const temp = [];
     for (let index = 0; index < scaleState.duration; index++) {
         if (index % 10 === 0) {
@@ -47,6 +55,9 @@ export default () => {
         };
     }
 
+    /**
+     * This defines the last line of the timeline to treat it differently
+     */
     if (scaleState.duration > 0) {
         if (scaleState.duration % 10 === 0) {
             temp[scaleState.duration] = (<dev className="scalePrimaryLine" id="lastScaleLine" style={{
@@ -88,18 +99,20 @@ export default () => {
 
                 var bounds = document.getElementById("filterBar").getBoundingClientRect();
                 var moveMouseX = e.clientX - bounds.left;
-
                 var filterBoxGrab = moveMouseX;
 
                 setFilterBoxPosition(filterBoxGrab)
             }}
         >
             {
+                /**
+                * Defines the Scale  
+                */
                 <div className="filterScaleLine">
-                    <div className="scale" id='scale'>
-                        {
-                            temp
-                        }
+                    <div className="scale" id='scale' onClick={(e) => {
+                        clickInVideoProgress(e.clientX)
+                    }}>
+                        {temp}
                         {
                             <div className='scaleProgressIndicator' style={{
                                 marginLeft: progressIndicator.progress + "px",
@@ -109,8 +122,12 @@ export default () => {
                 </div>
             }
             {
+                /**
+                 * Defines the TimelineBars with all the FilterBoxes 
+                 */
                 filterState.filterBars.map((filterBar, barIndex) => (
                     <div className="filterLine" style={{
+                        //Sets the TimelineBar width to fit the with of the scale
                         width: temp.length * 2.2 + + 3 + "vw",
                     }}>
                         <div className="filterTitleBox">
