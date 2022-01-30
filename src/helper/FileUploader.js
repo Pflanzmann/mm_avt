@@ -13,7 +13,7 @@ export const FileUploader = ({onSuccess, visibility}) => {
      */
     const onInputChange = (event) => {
         if (event.target.files[0].type === "video/mp4")
-            uploadVideo(event, event.target.files[0]);
+            uploadVideo(event.target.files[0]);
     }
 
     /**
@@ -22,7 +22,6 @@ export const FileUploader = ({onSuccess, visibility}) => {
      */
     const uploadVideo = (video) => {
         const data = new FormData();
-
         data.append('file', video);
         axios.post('//localhost:5000/upload', data)
             .then((res) => {
