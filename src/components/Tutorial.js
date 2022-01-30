@@ -47,6 +47,10 @@ class Tutorial extends Component {
             <h2>Tutorial</h2>
             <p>
               <p>
+                Be mindful of the F5-Button! If you refresh the page, all changes and uploaded videos will be lost and the default-state
+                will be restored!
+              </p>
+              <p>
                 To get you started, we've included a video for you to try out our cool filters.
               </p>
               <p>
