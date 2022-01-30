@@ -129,7 +129,7 @@ npx nodemon server.js
 npm start
 ```
 
-Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Firefox](https://www.mozilla.org/en-US/firefox/new/)) unter ```localhost:3000 ``` aufgerufen werden.
+Nun kann die Anwendung im Lieblingsbrowser (wir empfehlen [Google Chrome](https://www.google.com/chrome/?brand=YTUH&gclid=Cj0KCQiAi9mPBhCJARIsAHchl1waVXXFZA2GrdmOVSFgMFhbyqYAsqBOWHIP8UAM1weL1iEUTuOHlIoaAg_0EALw_wcB&gclsrc=aw.ds)) unter ```localhost:3000 ``` aufgerufen werden.
 
 <br> 
 
